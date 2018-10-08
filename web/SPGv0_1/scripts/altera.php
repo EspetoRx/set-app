@@ -36,34 +36,33 @@ if(isset($_SESSION['login'])){
 	$usuarios = mysqli_query($con, $sql);
 	while($reg = mysqli_fetch_array($usuarios)){
 		if($contador%6 != 4){
-			$retorno .= "<div class='col-md-3'>\n
-				<div class='col-md-10 main-login'>
-				<a href='alterar_este.php?email=".$reg['email']."'>
-				<br>
-				<center><img class='foto' src=\"getImage.php?PicNum=".$reg['perfil_id']."\" width=\"100%\" /></center>\n
-				<p><center><strong>".$reg['nome']."</strong></center></p><br>
-				</a>
-				</div>
+			$retorno .= "<div class='col-md-3'>
+					<div class='col-md-10 main-login'>
+						<br>
+						<a href='alterar_este.php?email=".$reg['email']."'>
+						<center><img class='foto' src=\"getImage.php?PicNum=".$reg['perfil_id']."\" width=\"100%\" /></center>
+						<p><center><strong>".$reg['nome']."</strong></center></p>
+						</a>
+					</div>
 			</div>\n";
 			$contador++;
 		}else{
-			$retorno .= "<div class='col-md-3'>\n
+			$retorno .= "<div class='col-md-3'>
 				<div class='col-md-10 main-login'>
 				<br>
 				<a href='alterar_este.php?email=".$reg['email']."'>
-				<center><img class='foto' src=\"getImage.php?PicNum=".$reg['perfil_id']."\" width=\"100%\" /></center>\n
-				<p><center><strong>".$reg['nome']."</strong></center></p><br>
+				<center><img class='foto' src=\"getImage.php?PicNum=".$reg['perfil_id']."\" width=\"100%\" /></center>
+				<p><center><strong>".$reg['nome']."</strong></center></p>
 				</a>
 				</div>
 			</div><div class='col-md-12 vis'>&nbsp;</div>\n";
 			$contador++;
 		}
 	}
-	$retorno .= "<div class=\"col-md-12\"><br>
-				<center><a href=\"painel_adm.php\"><button type=\"button\" class=\"btn btn-lg float-center bg-light\">Voltar</button></a></center
+	$retorno .= "<div class=\"col-md-12\">
+				<center><a href=\"../session.php\"><button type=\"button\" class=\"btn btn-lg float-center bg-light\">Voltar</button></a></center
 			</div>";
-		//echo($retorno);
-		
+	
 	/*---Dados de template---*/
 	$tpl = new Template("../template.html");
 	$tpl2 = new Template("html_template/visualiza_exlui.html");
