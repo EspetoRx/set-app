@@ -7,7 +7,6 @@ if(!isset($_SESSION['login'])){
 
 	$tpl->erro = "<br>";
 	$tpl->allert = "";
-	$tpl->so_este = "anti-valor";
 	
 	$tpl->show();
 }else{

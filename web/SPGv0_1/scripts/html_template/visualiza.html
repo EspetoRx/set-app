@@ -29,7 +29,7 @@
 		</div>
 		<div class="row">
 			<div class="col-md-2">
-				<center><img class="foto" src="upload/{foto}" width="100%" /></center>&nbsp;
+				<center><img class="foto" src="{foto}" width="100%" /></center>&nbsp;
 				<div class="{altera}">
 					<form action="altera_foto.php?email={email}" method="post" id="altera_foto" enctype="multipart/form-data">
 					<center><input type="file" name="file" id="file" class="inputfile" onChange="document.getElementById('altera_foto').submit();" required {disabled}/><label for="file">Alterar avatar</label></center>
@@ -102,7 +102,7 @@
 							<a href="{exclusion}"><button type="{buttao}" class="btn btn-lg float-left" style="background-color: #285273; color: #ffffff;">{labelbtn}</button></a>
 						</div>
 					</div>
-					<div class="col-md-12 somenor {visibil}">
+					<div class="col-md-12 {somenor} {visibil}">
 						<center>
 							<a href="{voltar}"><button type="button" class="btn btn-lg float-left bg-light">Voltar</button></a>
 							<a href="{exclusion}"><button type="{buttao}" class="btn btn-lg float-right" style="background-color: #285273; color: #ffffff;">{labelbtn}</button></a>

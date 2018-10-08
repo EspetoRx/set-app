@@ -34,8 +34,12 @@ if(isset($_FILES['file'])){
 	$diretorio = "upload/";
 	$nome_completo = $diretorio.$novo_nome;
 	move_uploaded_file($_FILES['file']['tmp_name'], $nome_completo);
+
+	$tamanhoImg = filesize($nome_completo); 
+ 
+    $mysqlImg = addslashes(fread(fopen($nome_completo, "r"), $tamanhoImg)); 
 	
-	$sql_code = "UPDATE perfil NATURAL JOIN usuario SET arquivo = '$novo_nome', data = NOW() WHERE usuario.email = '$login' AND perfil.id = usuario.perfil_id";
+	$sql_code = "UPDATE perfil NATURAL JOIN usuario SET arquivo = '$novo_nome', data = NOW(), foto = '$mysqlImg' WHERE usuario.email = '$login' AND perfil.id = usuario.perfil_id";
 
 	if(mysqli_query($con, $sql_code)){
 		$msg = "Arquivo enviado com sucesso!";
@@ -52,7 +56,11 @@ $data = mysqli_query($con, "SELECT data_admissao FROM perfil NATURAL JOIN usuari
 $git = mysqli_query($con, "SELECT github FROM perfil NATURAL JOIN usuario WHERE email = '$login' AND perfil.id = usuario.perfil_id");
 $linkedin = mysqli_query($con, "SELECT linkedin FROM perfil NATURAL JOIN usuario WHERE email = '$login' AND perfil.id = usuario.perfil_id");
 $type = mysqli_query($con, "SELECT descricao FROM tipousuario NATURAL JOIN usuario WHERE email = '$login' AND tipousuario.id = usuario.perfil_id");
-$foto = mysqli_query($con, "SELECT arquivo FROM perfil NATURAL JOIN usuario WHERE email = '$login' AND perfil.id = usuario.perfil_id");
+$result_foto = mysqli_query($con, "SELECT foto FROM perfil NATURAL JOIN usuario WHERE email = '$login' AND perfil.id = usuario.perfil_id");
+$foto = mysqli_fetch_object($result_foto);
+$profile = mysqli_query($con, "SELECT id FROM perfil NATURAL JOIN usuario WHERE email = '$login' AND perfil.id = usuario.perfil_id");
+$profile_id = mysqli_fetch_array($profile)[0];
+if (mysqli_fetch_array(mysqli_query($con, "SELECT tipo FROM tipousuario NATURAL JOIN usuario WHERE email = '$login' AND tipousuario.id = 1"))[0] == "1"){$mostrar = "mostrar";}else{ $mostrar = "nao_mostrar";}
 
 if (mysqli_fetch_array(mysqli_query($con, "SELECT tipo FROM tipousuario NATURAL JOIN usuario WHERE email = '$login' AND tipousuario.id = 1"))[0] == "1"){$mostrar = "mostrar";}else{ $mostrar = "nao_mostrar";}
 
@@ -60,7 +68,7 @@ mysqli_close($con);
 
 $tpl->CONTENT = "<div class=\"row\">
 				<div class=\"col-md-2\">
-					<center><img class=\"foto\" src='upload/".mysqli_fetch_array($foto)[0]."' width=\"100%\" /></center>
+					<center><img class=\"foto\" src=\"getImage.php?PicNum=$profile_id\" width=\"100%\" /></center><br />
 					<form action='grava.php' method='post' enctype='multipart/form-data'>
 					<center><input type=\"file\" name=\"file\" id=\"file\" class=\"inputfile\" onChange='this.form.submit()'/> 
 						<label for=\"file\">Alterar avatar</label></center>

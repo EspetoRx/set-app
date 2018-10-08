@@ -53,6 +53,7 @@ if(isset($_SESSION['login'])){
 	/*-ARQUIVOS DE IMAGEM-*/
 	$msg = false;
 	$novo_nome = "";
+	$image;
 	if(isset($_FILES['file'])){
 		$extensao = strtolower(substr($_FILES['file']['name'], -4));
 		$novo_nome2 = md5(time()).$extensao;
@@ -60,6 +61,9 @@ if(isset($_SESSION['login'])){
 		$diretorio = "upload/";
 		$nome_completo = $diretorio.$novo_nome2;
 		move_uploaded_file($_FILES['file']['tmp_name'], $nome_completo);
+		$tamanhoImg = filesize($nome_completo); 
+    	$mysqlImg = addslashes(fread(fopen($nome_completo, "r"), $tamanhoImg));
+    	$image = $mysqlImg; 
 	}
 		
 	/*- FIM ARQUIVOS DE IMAGEM-*/
@@ -88,7 +92,7 @@ if(isset($_SESSION['login'])){
 		return;
 	}else{
 		$sql1 = "INSERT INTO usuario (email,senha,tipo) VALUES ('$email','$senha',$tipo)";
-		$sql2 = "INSERT INTO perfil (nome, data_admissao, linkedin, github, arquivo, data) VALUES ('$nome', '$data_admissao', '$linkedin', '$github', '$novo_nome', NOW())";
+		$sql2 = "INSERT INTO perfil (nome, data_admissao, linkedin, github, arquivo, data, foto) VALUES ('$nome', '$data_admissao', '$linkedin', '$github', '$novo_nome', NOW(), '$image')";
 		$sql3 = "SELECT id FROM perfil WHERE nome = '$nome'";
 		$user = mysqli_query($con, $sql1);
 		if($nome != '')	$profile = mysqli_query($con, $sql2);
@@ -98,6 +102,13 @@ if(isset($_SESSION['login'])){
 	}
 		
 	
+	$result_foto = mysqli_query($con, "SELECT foto FROM perfil NATURAL JOIN usuario WHERE email = '$email' AND perfil.id = usuario.perfil_id");
+	$foto = mysqli_fetch_object($result_foto);
+	$profile = mysqli_query($con, "SELECT id FROM perfil NATURAL JOIN usuario WHERE email = '$email' AND perfil.id = usuario.perfil_id");
+	$profile_id = mysqli_fetch_array($profile)[0];
+	if (mysqli_fetch_array(mysqli_query($con, "SELECT tipo FROM tipousuario NATURAL JOIN usuario WHERE email = '$email' AND tipousuario.id = 1"))[0] == "1"){$mostrar = "mostrar";}else{ $mostrar = "nao_mostrar";}
+
+
 	
 	/*---Dados de template---*/
 	$tpl = new Template("../template.html");
@@ -114,7 +125,7 @@ if(isset($_SESSION['login'])){
 	$tpl2->email = $email;
 	$tpl2->github = $github;
 	$tpl2->linkedin = $linkedin;
-	$tpl2->foto = $novo_nome;
+	$tpl2->foto = "getImage.php?PicNum=$profile_id";
 	$tpl2->disabled = "disabled";
 	$tpl2->visibility = "vis-total";
 	$tpl2->visibil = "inv-total";

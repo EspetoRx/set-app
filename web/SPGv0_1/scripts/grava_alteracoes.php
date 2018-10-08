@@ -51,7 +51,11 @@ if(isset($_SESSION['login'])){
 	$git = mysqli_query($con, "SELECT github FROM perfil NATURAL JOIN usuario WHERE email = '$email' AND perfil.id = usuario.perfil_id");
 	$linkedin = mysqli_query($con, "SELECT linkedin FROM perfil NATURAL JOIN usuario WHERE email = '$email' AND perfil.id = usuario.perfil_id");
 	$type = mysqli_query($con, "SELECT id FROM tipousuario JOIN usuario WHERE email = '$email' AND tipousuario.id = usuario.tipo");
-	$foto = mysqli_query($con, "SELECT arquivo FROM perfil NATURAL JOIN usuario WHERE email = '$email' AND perfil.id = usuario.perfil_id");
+	$result_foto = mysqli_query($con, "SELECT foto FROM perfil NATURAL JOIN usuario WHERE email = '$email' AND perfil.id = usuario.perfil_id");
+	$foto = mysqli_fetch_object($result_foto);
+	$profile = mysqli_query($con, "SELECT id FROM perfil NATURAL JOIN usuario WHERE email = '$email' AND perfil.id = usuario.perfil_id");
+	$profile_id = mysqli_fetch_array($profile)[0];
+	if (mysqli_fetch_array(mysqli_query($con, "SELECT tipo FROM tipousuario NATURAL JOIN usuario WHERE email = '$email' AND tipousuario.id = 1"))[0] == "1"){$mostrar = "mostrar";}else{ $mostrar = "nao_mostrar";}
 		
 	/*-------------------RECUPERA LISTA DE TIPOS DE USUARIOS-------------------*/
 	$opt_block = "<select id='tipo' name='tipo' class='form-control' {disabled}>\n";
@@ -83,14 +87,14 @@ if(isset($_SESSION['login'])){
 	$tpl2->linkedin = mysqli_fetch_array($linkedin)[0];
 	$tpl2->email = $email;
 	$tpl2->OPT_BLOCK = $opt_block;
-	$tpl2->foto = mysqli_fetch_array($foto)[0];
+	$tpl2->foto = "getImage.php?PicNum=$profile_id";
 	$tpl2->disabled = "disabled";
-	$tpl2->visibility = "vis-total";
-	$tpl2->visibil = "inv-total";
+	$tpl2->visibility = "vis_no_change";
+	$tpl2->visibil = "inv_no_change";
 	$tpl2->altera = "inv-total";
 	$tpl2->exclusion = "exclui.php?email=".$email;
 	$tpl2->labelbtn = "Excluir";
-	$tpl2->voltar = "painel_adm.php";
+	$tpl2->voltar = "altera.php";
 	$tpl2->TITLE = "Membro alterado com sucesso.";
 	$tpl->CONTENT = $tpl2->parse();
 		

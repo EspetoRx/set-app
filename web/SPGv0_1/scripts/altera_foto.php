@@ -41,7 +41,11 @@ if(isset($_SESSION['login'])){
 		$nome_completo = $diretorio.$novo_nome;
 		move_uploaded_file($_FILES['file']['tmp_name'], $nome_completo);
 
-		$sql_code = "UPDATE perfil NATURAL JOIN usuario SET arquivo = '$novo_nome', data = NOW() WHERE usuario.email = '$email' AND perfil.id = usuario.perfil_id";
+		$tamanhoImg = filesize($nome_completo); 
+ 
+    	$mysqlImg = addslashes(fread(fopen($nome_completo, "r"), $tamanhoImg)); 
+	
+		$sql_code = "UPDATE perfil NATURAL JOIN usuario SET arquivo = '$novo_nome', data = NOW(), foto = '$mysqlImg' WHERE usuario.email = '$email' AND perfil.id = usuario.perfil_id";
 
 		if(mysqli_query($con, $sql_code)){
 			$msg = "Arquivo enviado com sucesso!";
@@ -58,7 +62,11 @@ if(isset($_SESSION['login'])){
 	$git = mysqli_query($con, "SELECT github FROM perfil NATURAL JOIN usuario WHERE email = '$email' AND perfil.id = usuario.perfil_id");
 	$linkedin = mysqli_query($con, "SELECT linkedin FROM perfil NATURAL JOIN usuario WHERE email = '$email' AND perfil.id = usuario.perfil_id");
 	$type = mysqli_query($con, "SELECT id FROM tipousuario JOIN usuario WHERE email = '$email' AND tipousuario.id = usuario.tipo");
-	$foto = mysqli_query($con, "SELECT arquivo FROM perfil NATURAL JOIN usuario WHERE email = '$email' AND perfil.id = usuario.perfil_id");
+	$result_foto = mysqli_query($con, "SELECT foto FROM perfil NATURAL JOIN usuario WHERE email = '$email' AND perfil.id = usuario.perfil_id");
+	$foto = mysqli_fetch_object($result_foto);
+	$profile = mysqli_query($con, "SELECT id FROM perfil NATURAL JOIN usuario WHERE email = '$email' AND perfil.id = usuario.perfil_id");
+	$profile_id = mysqli_fetch_array($profile)[0];
+	if (mysqli_fetch_array(mysqli_query($con, "SELECT tipo FROM tipousuario NATURAL JOIN usuario WHERE email = '$email' AND tipousuario.id = 1"))[0] == "1"){$mostrar = "mostrar";}else{ $mostrar = "nao_mostrar";}
 		
 	/*-------------------RECUPERA LISTA DE TIPOS DE USUARIOS-------------------*/
 	$opt_block = "<select id='tipo' name='tipo' class='form-control' {disabled}>\n";
@@ -89,16 +97,19 @@ if(isset($_SESSION['login'])){
 	$tpl2->linkedin = mysqli_fetch_array($linkedin)[0];
 	$tpl2->email = $email;
 	$tpl2->OPT_BLOCK = $opt_block;
-	$tpl2->foto = mysqli_fetch_array($foto)[0];
+	$tpl2->foto = "getImage.php?PicNum=$profile_id";
 	$tpl2->disabled = "";
 	$tpl2->visibility = "inv-total";
 	$tpl2->visibil = "vis-total";
-	$tpl2->altera = "vis-total";
+	$tpl2->altera = "vis_no_change";
 	$tpl2->act = "grava_alteracoes";
 	$tpl2->buttao = "submit";
 	$tpl2->labelbtn = "Alterar";
+	$tpl2->TITLE = "Alteração de membro - Avatar alterado";
+	$tpl2->voltar = "altera.php";
 	//$tpl2->emailonly = "Disabled";
-	$tpl->labeltitle = "Avatar alterado";
+	$tpl->labeltitle = " - Avatar alterado";
+	$tpl2->somenor = "somenor";
 	$tpl2->msg = $msg;
 	$tpl->CONTENT = $tpl2->parse();
 	//$tpl->value = "valor";
@@ -117,8 +128,11 @@ if(isset($_SESSION['login'])){
 			$diretorio = "upload/";
 			$nome_completo = $diretorio.$novo_nome;
 			move_uploaded_file($_FILES['file']['tmp_name'], $nome_completo);
-
-			$sql_code = "UPDATE perfil NATURAL JOIN usuario SET arquivo = '$novo_nome', data = NOW() WHERE usuario.email = '$email' AND perfil.id = usuario.perfil_id";
+			$tamanhoImg = filesize($nome_completo); 
+		 
+		    $mysqlImg = addslashes(fread(fopen($nome_completo, "r"), $tamanhoImg)); 
+			
+			$sql_code = "UPDATE perfil NATURAL JOIN usuario SET arquivo = '$novo_nome', data = NOW(), foto = '$mysqlImg' WHERE usuario.email = '$login' AND perfil.id = usuario.perfil_id";
 
 			if(mysqli_query($con, $sql_code)){
 				$msg = "Arquivo enviado com sucesso!";
@@ -135,7 +149,10 @@ if(isset($_SESSION['login'])){
 		$git = mysqli_query($con, "SELECT github FROM perfil NATURAL JOIN usuario WHERE email = '$email' AND perfil.id = usuario.perfil_id");
 		$linkedin = mysqli_query($con, "SELECT linkedin FROM perfil NATURAL JOIN usuario WHERE email = '$email' AND perfil.id = usuario.perfil_id");
 		$type = mysqli_query($con, "SELECT id FROM tipousuario JOIN usuario WHERE email = '$email' AND tipousuario.id = usuario.tipo");
-		$foto = mysqli_query($con, "SELECT arquivo FROM perfil NATURAL JOIN usuario WHERE email = '$email' AND perfil.id = usuario.perfil_id");
+		$result_foto = mysqli_query($con, "SELECT foto FROM perfil NATURAL JOIN usuario WHERE email = '$email' AND perfil.id = usuario.perfil_id");
+		$foto = mysqli_fetch_object($result_foto);
+		$profile = mysqli_query($con, "SELECT id FROM perfil NATURAL JOIN usuario WHERE email = '$email' AND perfil.id = usuario.perfil_id");
+		$profile_id = mysqli_fetch_array($profile)[0];
 
 		/*-------------------RECUPERA LISTA DE TIPOS DE USUARIOS-------------------*/
 		$opt_block = "<select id='tipo' name='tipo' class='form-control' disabled>\n";
@@ -172,15 +189,18 @@ if(isset($_SESSION['login'])){
 		$template2->github = mysqli_fetch_array($git)[0];
 		$template2->linkedin = mysqli_fetch_array($linkedin)[0];
 		$template2->email = $login;
-		$template2->foto = mysqli_fetch_array($foto)[0];
+		$template2->foto = "getImage.php?PicNum=$profile_id";
 		$template2->OPT_BLOCK = $opt_block;
 
 		$template2->emailonly = "disabled";
 		$template2->data_admin = "disabled";
+		$template2->somenor = "somenor";
+		$template2->voltar = "../session.php";
 		//$template2->visibil = "vis-total";
 		$tpl->l_perfil = " - Alterando o perfil";
 		$tpl->CONTENT = $template2->parse();
 		//$tpl->value = "valor";
+
 		$tpl->show();
 	}else{
 		/*---Dados de template---*/

@@ -29,7 +29,11 @@ if(isset($_SESSION['login'])){
 	$git = mysqli_query($con, "SELECT github FROM perfil NATURAL JOIN usuario WHERE email = '$login' AND perfil.id = usuario.perfil_id");
 	$linkedin = mysqli_query($con, "SELECT linkedin FROM perfil NATURAL JOIN usuario WHERE email = '$login' AND perfil.id = usuario.perfil_id");
 	$type = mysqli_query($con, "SELECT descricao FROM tipousuario JOIN usuario WHERE email = '$login' AND tipousuario.id = usuario.tipo");
-	$foto = mysqli_query($con, "SELECT arquivo FROM perfil NATURAL JOIN usuario WHERE email = '$login' AND perfil.id = usuario.perfil_id");
+	$result_foto = mysqli_query($con, "SELECT foto FROM perfil NATURAL JOIN usuario WHERE email = '$login' AND perfil.id = usuario.perfil_id");
+	$foto = mysqli_fetch_object($result_foto);
+	$profile = mysqli_query($con, "SELECT id FROM perfil NATURAL JOIN usuario WHERE email = '$login' AND perfil.id = usuario.perfil_id");
+	$profile_id = mysqli_fetch_array($profile)[0];
+	if (mysqli_fetch_array(mysqli_query($con, "SELECT tipo FROM tipousuario NATURAL JOIN usuario WHERE email = '$login' AND tipousuario.id = 1"))[0] == "1"){$mostrar = "mostrar";}else{ $mostrar = "nao_mostrar";}
 	$tipo = mysqli_fetch_array($type)[0];
 	
 	if($tipo == "Administrador"){
@@ -67,7 +71,7 @@ if(isset($_SESSION['login'])){
 	$template2->github = mysqli_fetch_array($git)[0];
 	$template2->linkedin = mysqli_fetch_array($linkedin)[0];
 	$template2->email = $login;
-	$template2->foto = mysqli_fetch_array($foto)[0];
+	$template2->foto = "getImage.php?PicNum=$profile_id";
 	$template2->OPT_BLOCK = $opt_block;
 	$template2->voltar = "../session.php";
 	$template2->emailonly = "disabled";
@@ -75,6 +79,7 @@ if(isset($_SESSION['login'])){
 	$template2->act = "grava_altera_meu_perfil";
 	$template2->buttao = "submit";
 	$template2->TITLE = "Alterando meu perfil";
+	$template2->somenor = "somenor";
 	//$template2->visibil = "vis-total";
 	$tpl->l_perfil = " - Alterando o perfil";
 	$tpl->CONTENT = $template2->parse();

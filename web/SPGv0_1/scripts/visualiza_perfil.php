@@ -32,7 +32,11 @@ if(isset($_SESSION['login'])){
 	$git = mysqli_query($con, "SELECT github FROM perfil NATURAL JOIN usuario WHERE email = '$email' AND perfil.id = usuario.perfil_id");
 	$linkedin = mysqli_query($con, "SELECT linkedin FROM perfil NATURAL JOIN usuario WHERE email = '$email' AND perfil.id = usuario.perfil_id");
 	$type = mysqli_query($con, "SELECT id FROM tipousuario JOIN usuario WHERE email = '$email' AND tipousuario.id = usuario.tipo");
-	$foto = mysqli_query($con, "SELECT arquivo FROM perfil NATURAL JOIN usuario WHERE email = '$email' AND perfil.id = usuario.perfil_id");
+	$result_foto = mysqli_query($con, "SELECT foto FROM perfil NATURAL JOIN usuario WHERE email = '$email' AND perfil.id = usuario.perfil_id");
+	$foto = mysqli_fetch_object($result_foto);
+	$profile = mysqli_query($con, "SELECT id FROM perfil NATURAL JOIN usuario WHERE email = '$email' AND perfil.id = usuario.perfil_id");
+	$profile_id = mysqli_fetch_array($profile)[0];
+	if (mysqli_fetch_array(mysqli_query($con, "SELECT tipo FROM tipousuario NATURAL JOIN usuario WHERE email = '$login' AND tipousuario.id = 1"))[0] == "1"){$mostrar = "mostrar";}else{ $mostrar = "nao_mostrar";}
 		
 	/*-------------------RECUPERA LISTA DE TIPOS DE USUARIOS-------------------*/
 	$opt_block = "<select id='tipo' name='tipo' class='form-control' {disabled}>\n";
@@ -56,7 +60,7 @@ if(isset($_SESSION['login'])){
 	$template2->linkedin = mysqli_fetch_array($linkedin)[0];
 	$template2->email = $email;
 	$template2->OPT_BLOCK = $opt_block;
-	$template2->foto = mysqli_fetch_array($foto)[0];
+	$template2->foto = "getImage.php?PicNum=$profile_id";
 	$template2->disabled = "disabled";
 	$template2->TITLE = "Visualização de Membro";
 	$template2->voltar = "visualiza_membros.php";
@@ -68,12 +72,13 @@ if(isset($_SESSION['login'])){
 	$template->active = "letra";
 	$template->painel_active = "letra";
 	$template->membros = "membros";
+	$template2->somenor = "somenor";
 	if(mysqli_fetch_array(mysqli_query($con, "SELECT tipo FROM usuario WHERE email = '$login'"))[0] != 1){
-		$template->mostrar = "inv-total";
+		$template->mostrar = "inv_no_change";
 		$template2->visibility = "vis-total";
 		$template2->visibil = "inv-total";
 	}else{
-		$template->mostrar = "vis_no_total";
+		$template->mostrar = "vis_no_change";
 		$template2->visibility = "inv-total";
 		$template2->visibil = "vis-total";
 	}

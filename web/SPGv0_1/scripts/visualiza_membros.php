@@ -36,7 +36,7 @@ if(isset($_SESSION['login'])){
 					<div class='col-md-10 main-login'>
 						<br>
 						<a href='visualiza_perfil.php?email=".$reg['email']."'>
-						<center><img class='foto' src='upload/".$reg['arquivo']."' width=\"100%\" /></center>
+						<center><img class='foto' src=\"getImage.php?PicNum=".$reg['perfil_id']."\" width=\"100%\" /></center>
 						<p><center><strong>".$reg['nome']."</strong></center></p>
 						</a>
 					</div>
@@ -47,7 +47,7 @@ if(isset($_SESSION['login'])){
 				<div class='col-md-10 main-login'>
 				<br>
 				<a href='visualiza_perfil.php?email=".$reg['email']."'>
-				<center><img class='foto' src='upload/".$reg['arquivo']."' width=\"100%\" /></center>
+				<center><img class='foto' src=\"getImage.php?PicNum=".$reg['perfil_id']."\" width=\"100%\" /></center>
 				<p><center><strong>".$reg['nome']."</strong></center></p>
 				</a>
 				</div>

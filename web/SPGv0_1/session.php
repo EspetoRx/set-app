@@ -32,15 +32,17 @@ $data = mysqli_query($con, "SELECT data_admissao FROM perfil NATURAL JOIN usuari
 $git = mysqli_query($con, "SELECT github FROM perfil NATURAL JOIN usuario WHERE email = '$login' AND perfil.id = usuario.perfil_id");
 $linkedin = mysqli_query($con, "SELECT linkedin FROM perfil NATURAL JOIN usuario WHERE email = '$login' AND perfil.id = usuario.perfil_id");
 $type = mysqli_query($con, "SELECT descricao FROM tipousuario JOIN usuario WHERE email = '$login' AND tipousuario.id = usuario.tipo");
-$foto = mysqli_query($con, "SELECT arquivo FROM perfil NATURAL JOIN usuario WHERE email = '$login' AND perfil.id = usuario.perfil_id");
-
+$result_foto = mysqli_query($con, "SELECT foto FROM perfil NATURAL JOIN usuario WHERE email = '$login' AND perfil.id = usuario.perfil_id");
+$foto = mysqli_fetch_object($result_foto);
+$profile = mysqli_query($con, "SELECT id FROM perfil NATURAL JOIN usuario WHERE email = '$login' AND perfil.id = usuario.perfil_id");
+$profile_id = mysqli_fetch_array($profile)[0];
 if (mysqli_fetch_array(mysqli_query($con, "SELECT tipo FROM tipousuario NATURAL JOIN usuario WHERE email = '$login' AND tipousuario.id = 1"))[0] == "1"){$mostrar = "mostrar";}else{ $mostrar = "nao_mostrar";}
 
 mysqli_close($con);
-
+//Header( "Content-type: image/gif"); 
 $tpl->CONTENT = "<div class=\"row\">
 				<div class=\"col-md-2\">
-					<center><img class=\"foto\" src='scripts/upload/".mysqli_fetch_array($foto)[0]."' width=\"100%\" /></center>&nbsp;
+					<center><img class=\"foto\" src=\"scripts/getImage.php?PicNum=$profile_id\" width=\"100%\" /></center>&nbsp;
 					<form action='scripts/grava.php' method='post' enctype='multipart/form-data'>
 					<center><input type=\"file\" name=\"file\" id=\"file\" class=\"inputfile\" onChange='this.form.submit()' required/>
 						<label for=\"file\">Alterar avatar</label></center>
@@ -95,7 +97,7 @@ $tpl->CONTENT = "<div class=\"row\">
 				<div class=\"offset-md-2 col-md-10\">
 					<form method=\"post\" action=\"scripts/logout.php\">
 						<a href='scripts/alterar_senha.php'><button type=\"button\" class=\"btn btn-lg bg-light\" style=\"color: #000000;\" align=\"left\">Alterar Senha</button></a> &nbsp; &nbsp;&nbsp;
-						<a href='scripts/altera_meu_perfil.php'><button type=\"button\" class=\"btn btn-lg bg-light botao-maldito\" style=\"color: #000000;\" align=\"left\">Alterar Perfil</button></a> &nbsp;
+						<a href='scripts/altera_meu_perfil.php'><button type=\"button\" class=\"btn btn-lg bg-light botao-maldito\" style=\"color: #000000;\" align=\"left\">Alterar Perfil</button></a> &nbsp;<br>
 						<button type=\"submit\" class=\"btn btn-lg float-right logout\" style=\"background-color: #285273; color: #ffffff;\" align=\"left\">Logout</button>
 					</form>
 				</div>

@@ -40,7 +40,7 @@ if(isset($_SESSION['login'])){
 				<div class='col-md-10 main-login'>
 				<br>
 				<a href='excluir_este.php?email=".$reg['email']."'>
-				<center><img class='foto' src='upload/".$reg['arquivo']."' width=\"100%\" /></center>\n
+				<center><img class='foto' src=\"getImage.php?PicNum=".$reg['perfil_id']."\" width=\"100%\" /></center>\n
 				<p><center><strong>".$reg['nome']."</strong></center></p><br>
 				</a>
 				</div>
@@ -51,7 +51,7 @@ if(isset($_SESSION['login'])){
 				<div class='col-md-10 main-login'>
 				<br>
 				<a href='excluir_este.php?email=".$reg['email']."'>
-				<center><img class='foto' src='upload/".$reg['arquivo']."' width=\"100%\" /></center>\n
+				<center><img class='foto' src=\"getImage.php?PicNum=".$reg['perfil_id']."\" width=\"100%\" /></center>\n
 				<p><center><strong>".$reg['nome']."</strong></center></p><br>
 				</a>
 				</div>
