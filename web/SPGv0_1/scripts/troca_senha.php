@@ -53,7 +53,7 @@ if(isset($_SESSION['login'])){
 		$template2->ERRO_SENHA = "<center><spam style='color: red'>Erro ao confirmar a senha antiga.</spam></center>";
 		$tpl->l_perfil = " - Alterando a senha";
 		$tpl->CONTENT = $template2->parse();
-		$tpl->value = "anti-valor";
+		//$tpl->value = "anti-valor";
 		$tpl->show();
 	}else{
 		if($senha_nova == $re_senha_nova){
@@ -90,7 +90,7 @@ if(isset($_SESSION['login'])){
 			$template2->ERRO_SENHA = "<center><spam style='color: red'>Senhas novas não conferem.</spam></center>";
 			$tpl->l_perfil = " - Alterando a senha";
 			$tpl->CONTENT = $template2->parse();
-			$tpl->value = "anti-valor";
+			//$tpl->value = "anti-valor";
 			$tpl->show();	
 		}
 	}

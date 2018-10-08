@@ -89,7 +89,7 @@ input::-webkit-input-placeholder {
 
 /*************FOOTER DOCUMENT**************/
 .footer {
-   position: fixed;
+   position: static;
    left: 0;
    bottom: 0;
    width: 100%;
@@ -278,6 +278,9 @@ input::-webkit-input-placeholder {
 	}
 	.logout{
 		margin-top: 15px;
+	}
+	.anti-valor{
+		position: static;
 	}
 }
 

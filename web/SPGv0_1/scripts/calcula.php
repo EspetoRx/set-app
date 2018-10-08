@@ -193,7 +193,7 @@ if(isset($_SESSION['login'])){
 		</div>
 	</div>
 	</form>";
-	$tpl->value = "valor";
+	//$tpl->value = "valor";
 	$tpl->show();
 }
 ?>

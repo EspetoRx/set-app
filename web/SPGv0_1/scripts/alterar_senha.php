@@ -40,7 +40,7 @@ if(isset($_SESSION['login'])){
 	$template2->visibil = "vis-total";
 	$tpl->l_perfil = " - Alterando a senha";
 	$tpl->CONTENT = $template2->parse();
-	$tpl->value = "anti-valor";
+	//$tpl->value = "anti-valor";
 	$tpl->show();
 }
 ?>

@@ -105,7 +105,7 @@ $tpl->mostrar = $mostrar;
 $tpl->active = "active";
 $tpl->perfil_active = "color: #000000;";
 $tpl->painel_color = "color: #ffffff;";
-
+$tpl->so_este = "anti-valor";
 $tpl->show();
 
 ?>

@@ -74,7 +74,7 @@ if(isset($_SESSION['login'])){
 	}else{
 		$template->mostrar = "vis_no_change";
 	}
-	$template->value = "valor";
+	//$template->value = "valor";
 	$template->show();
 }
 ?>

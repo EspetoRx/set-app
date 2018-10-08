@@ -101,7 +101,7 @@ if(isset($_SESSION['login'])){
 	$tpl->labeltitle = "Avatar alterado";
 	$tpl2->msg = $msg;
 	$tpl->CONTENT = $tpl2->parse();
-	$tpl->value = "valor";
+	//$tpl->value = "valor";
 
 		
 	/*---Carregamento do modelo---*/
@@ -180,7 +180,7 @@ if(isset($_SESSION['login'])){
 		//$template2->visibil = "vis-total";
 		$tpl->l_perfil = " - Alterando o perfil";
 		$tpl->CONTENT = $template2->parse();
-		$tpl->value = "valor";
+		//$tpl->value = "valor";
 		$tpl->show();
 	}else{
 		/*---Dados de template---*/
@@ -190,7 +190,7 @@ if(isset($_SESSION['login'])){
 		$tpl->painel_color = "color: #000000;";
 		$tpl->perfil_active = "color: #ffffff;";
 		$tpl->CONTENT = "<h2>Error 404<h2><h3>Você não tem nível de permissão suficiente para acessar esta página.</h3>";
-		$tpl->value = "anti-valor";
+		//$tpl->value = "anti-valor";
 		/*---Carregamento do modelo---*/
 		$tpl->show();
 	}

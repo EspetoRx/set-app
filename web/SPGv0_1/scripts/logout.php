@@ -26,7 +26,7 @@ if(isset($_SESSION['login'])){
 	$tpl->erro = "<center><p style='color: black;'>Logout realizado com sucesso.</center>";
 	$tpl->allert= "";
 	$tpl->ende = "../";
-	$tpl->rodape = "rodape";
+	//$tpl->rodape = "rodape";
 
 	$tpl->show();
 }

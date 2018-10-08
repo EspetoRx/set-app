@@ -78,7 +78,7 @@ if(isset($_SESSION['login'])){
 	//$template2->visibil = "vis-total";
 	$tpl->l_perfil = " - Alterando o perfil";
 	$tpl->CONTENT = $template2->parse();
-	$tpl->value = "valor";
+	//$tpl->value = "valor";
 	$tpl->show();
 }
 ?>

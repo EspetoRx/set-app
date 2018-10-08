@@ -52,7 +52,7 @@ if(isset($_SESSION['login'])){
 		$tpl->painel_color = "color: #000000;";
 		$tpl->perfil_active = "color: #ffffff;";
 		$tpl->CONTENT = "<h2>Error 404<h2><h3>Você não tem nível de permissão suficiente para acessar esta página.</h3>";
-		$tpl->value = "anti-valor";
+		//$tpl->value = "anti-valor";
 		/*---Carregamento do modelo---*/
 		$tpl->show();
 	}

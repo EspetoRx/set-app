@@ -78,7 +78,7 @@ if(isset($_SESSION['login'])){
 		$template2->visibil = "vis-total";
 	}
 	$template->CONTENT = $template2->parse();
-	$template->value = "valor";
+	//$template->value = "valor";
 	$template->show();
 }
 ?>

@@ -73,7 +73,7 @@ if(isset($_SESSION['login'])){
 		$tpl->painel_color = "color: #000000;";
 		$tpl->perfil_active = "color: #ffffff;";
 		$tpl->CONTENT = "<h2>Error 303<h2><h3>E-mail já existe</h3>";
-		$tpl->value = "anti-valor";
+		//$tpl->value = "anti-valor";
 		$tpl->show();
 		return;
 	}else if($senha != $resenha){
@@ -83,7 +83,7 @@ if(isset($_SESSION['login'])){
 		$tpl->painel_color = "color: #000000;";
 		$tpl->perfil_active = "color: #ffffff;";
 		$tpl->CONTENT = "<h2>Error 303<h2><h3>Senhas não batem</h3>";
-		$tpl->value = "anti-valor";
+		//$tpl->value = "anti-valor";
 		$tpl->show();
 		return;
 	}else{
@@ -121,7 +121,7 @@ if(isset($_SESSION['login'])){
 	$tpl2->voltar = "painel_adm.php";
 	$tpl2->TITLE = "Usuário novo adicionado.";
 	$tpl->CONTENT = $tpl2->parse();
-	$tpl->value = "valor";
+	//$tpl->value = "valor";
 
 	/*---Carregamento do modelo---*/
 
@@ -134,7 +134,7 @@ if(isset($_SESSION['login'])){
 		$tpl->painel_color = "color: #000000;";
 		$tpl->perfil_active = "color: #ffffff;";
 		$tpl->CONTENT = "<h2>Error 404<h2><h3>Você não tem nível de permissão suficiente para acessar esta página.</h3>";
-		$tpl->value = "anti-valor";
+		//$tpl->value = "anti-valor";
 		$tpl->show();
 	}
 	
