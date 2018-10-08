@@ -59,7 +59,7 @@ if(isset($_SESSION['login'])){
 			$contador++;
 		}
 	}
-	$retorno .= "<div class=\"col-md-12\">
+	$retorno .= "<div class=\"col-md-12\"><br>
 				<center><a href=\"painel_adm.php\"><button type=\"button\" class=\"btn btn-lg float-center bg-light\">Voltar</button></a></center
 			</div>";
 		//echo($retorno);
