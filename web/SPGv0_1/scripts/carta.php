@@ -38,7 +38,7 @@ if(isset($_SESSION['login'])){
 	}else{
 		$template->mostrar = "vis_no_change";
 	}
-	//$template->value = "always_static";
+	$template->so_este = "valor";
 	$template->show();
 }
 ?>

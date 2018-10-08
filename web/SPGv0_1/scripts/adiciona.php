@@ -44,7 +44,7 @@ if(isset($_SESSION['login'])){
 	$tpl->labeltitle = " - Adicionar Membro";
 	$tpl2->OPT_BLOCK = $opt_block;
 	$tpl->CONTENT = $tpl2->parse();
-	//$tpl->value = "valor";
+	$tpl->so_este = "valor";
 
 	/*---Carregamento do modelo---*/
 

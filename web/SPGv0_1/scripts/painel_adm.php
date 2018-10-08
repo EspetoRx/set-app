@@ -211,7 +211,7 @@ if(isset($_SESSION['login'])){
 		</div>
 	</div>
 	</form>";
-	//$tpl->value = "valor";
+	$tpl->so_este = "valor";
 	$tpl->show();
 	}else{
 		$tpl = new Template("../template.html");

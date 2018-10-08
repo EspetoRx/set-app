@@ -74,7 +74,7 @@ if(isset($_SESSION['login'])){
 	$tpl->labeltitle = " - Remove Membro";
 	$tpl2->USUARIOS = $retorno;
 	$tpl->CONTENT = $tpl2->parse();
-	//$tpl->value = "valor";
+	$tpl->so_este = "valor";
 
 		
 	/*---Carregamento do modelo---*/

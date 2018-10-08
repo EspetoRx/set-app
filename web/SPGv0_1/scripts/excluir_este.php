@@ -84,7 +84,7 @@ if(isset($_SESSION['login'])){
 	$tpl2->TITLE = "Exclusão de Membro";
 	$tpl2->somenor = "somenor";
 	$tpl->CONTENT = $tpl2->parse();
-	//$tpl->value = "valor";
+	$tpl->so_este = "valor";
 
 		
 	/*---Carregamento do modelo---*/
