@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+	  <script type="text/javascript">
+	  function validaSenha(){ 
+		  if (document.getElementById('re_senha_nova').value != document.getElementById('senha_nova').value) {
+			  document.getElementById('msg').innerHTML = "Senhas não conferem.";
+			  document.getElementById('msg').setAttribute("style", "color: red;");
+			document.formulario.senha_nova.value = '';
+			document.formulario.re_senha_nova.value = '';
+			document.formulario.senha_nova.focus();
+			document.getElementById('senha_nova').setAttribute("style","border: 2px solid red;");
+			document.getElementById('re_senha_nova').setAttribute("style","border: 2px solid red;");
+
+		  } else {
+			document.getElementById('msg').innerHTML = "Senhas conferem.";
+			document.getElementById('msg').setAttribute("style", "color: green;");
+			document.getElementById('senha_nova').setAttribute("style","border: 2px solid green;");
+			document.getElementById('re_senha_nova').setAttribute("style","border: 2px solid green;");
+		  }
+	   }
+		function validaSenha1(){ 
+			  if (document.getElementById('re_senha_nova').value != document.getElementById('senha_nova').value) {
+				document.getElementById('senha_nova').setAttribute("style","border: 2px solid red;");
+				document.getElementById('re_senha_nova').setAttribute("style","border: 2px solid red;");
+
+			  } else {
+				document.getElementById('senha_nova').setAttribute("style","border: 2px solid green;");
+				document.getElementById('re_senha_nova').setAttribute("style","border: 2px solid green;");
+			  }
+		}
+	  </script>
+	 
+  </head>
+  <body>
+	<div class="container">
+		<div class="col-md-12" id="erro_senha">{ERRO_SENHA}</div>
+		<form method="post" action="troca_senha.php" id="formulario" name="formulario">
+			<div class="row">
+				<!--TITULO-->
+				<div class="col-md-12">
+					<center>
+						<h3>Alterar senha</h3>
+						<br>
+					</center>
+				</div>
+				<!--SENHA ANTIGA-->
+				<div class="col-md-6">
+					<div class="col-md-12">
+						<h5>Senha antiga:</h5>
+						<input type="password" class="form-control" id="senha_antiga" name="senha_antiga" required/>
+						<br>
+					</div>
+				</div>
+				<!--SENHA NOVA-->
+				<div class="col-md-6">
+					<div class="col-md-12">
+						<center>
+							<div id="msg">
+							</div>
+						</center>
+					<h5>Senha nova:</h5>
+					<input type="password" class="form-control" id="senha_nova" name="senha_nova" onblur="validaSenha1()" required/>
+					<br>
+					<h5>Re-entre a senha nova:</h5>
+					<input type="password" class="form-control" id="re_senha_nova" name="re_senha_nova" onblur="validaSenha()" required/>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<br>
+				</div>
+				<div class="col-md-6 {visibil}">
+					<div class="col-md-12">
+						<a href="../session.php"><button type="button" class="btn btn-lg float-right bg-light">Voltar</button></a>
+					</div>
+				</div>
+				<div class="col-md-6 {visibil}">
+					<div class="col-md-12">
+						<button type="submit" class="btn btn-lg float-left" style="background-color: #285273; color: #ffffff;">Trocar senha</button>
+					</div>
+				</div>
+				<div class="col-md-12 somenor">
+					<center>
+						<a href="../session.php"><button type="button" class="btn btn-lg float-left bg-light">Voltar</button></a>
+						<button type="submit" class="btn btn-lg float-right" style="background-color: #285273; color: #ffffff;">Trocar Senha</button>
+					</center>
+				</div>
+			</div>
+		</form>
+	</div>
+  </body>
+</html>

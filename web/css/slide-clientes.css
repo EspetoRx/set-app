@@ -1,0 +1,96 @@
+/* style dos componentes utilizados no slide dos clientes da SetApp*/
+a {
+    color:#ffffff;
+    text-decoration: none;
+}
+a:hover {
+    color:#333333;
+}
+
+.section-slide-clientes {
+    overflow: auto;
+    padding:3em;
+    margin: 0 auto;
+    background: #0E83CD;
+}
+
+/* Simple slideshow (not resposive - yet) */
+.slideshow-wrapper {
+    width:704px;
+    overflow:hidden;
+    margin: 0 auto;
+}
+
+.slideshow-wrapper ul {
+    margin:0;
+    padding:0;
+    width: 2840px; /* 710 * 4 */
+    -webkit-animation: slideshow 10s infinite;
+    -moz-animation: slideshow 10s infinite;
+    -o-animation: slideshow 10s infinite;
+    animation: slideshow 10s infinite;
+}
+.slides .slide-image {
+    width:700px;
+    display:inline-block;
+    margin:0;
+    padding:0;
+}
+.slides .slide-image img {
+    width: 100%;
+}
+
+/* Helper classes */
+
+.heart {
+    color:red;
+    font-size: 1.4em;
+}
+.text-center {
+    text-align: center;
+}
+.transition-all {
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+}
+
+/* Animation */
+@-webkit-keyframes slideshow {
+  0%   	{ margin-left: 0.5%; 			}
+  25% 	{ margin-left: -100%; 	}
+  50% 	{ margin-left: -200%;	}
+  75% 	{ margin-left: -300%; }
+}
+@-moz-keyframes slideshow {
+  0%   	{ margin-left: 0.5%; 			}
+  25% 	{ margin-left: -100%; 	}
+  50% 	{ margin-left: -200%;	}
+  75% 	{ margin-left: -300%; }
+}
+@-o-keyframes slideshow {
+  0%   	{ margin-left: 0.5%; 			}
+  25% 	{ margin-left: -100%; 	}
+  50% 	{ margin-left: -200%;	}
+  75% 	{ margin-left: -300%; }
+}
+
+@keyframes slideshow {
+  0%   	{ margin-left: 0.5%; 			}
+  25% 	{ margin-left: -100%; 	}
+  50% 	{ margin-left: -200%;	}
+  75% 	{ margin-left: -300%; }
+}
+
+/* Media queries */
+@media only screen and (max-width:768px) {
+    .slideshow-wrapper  { width:404px; }
+    .slideshow-wrapper .slides .slide-image{ width:400px; }
+    section { padding:0.5em; }
+}
+
+@media only screen and (max-width:400px) {
+    .slideshow-wrapper  { width:304px; }
+    .slideshow-wrapper .slides .slide-image { width:300px;}
+}

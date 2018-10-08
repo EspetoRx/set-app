@@ -1,0 +1,289 @@
+@charset "utf-8";
+/*************LOGIN BLOCK DOCUMENT**************/
+body, html{
+    height: 100%;
+ 	background-repeat: no-repeat;
+ 	font-family: 'Oxygen', sans-serif;
+}
+
+.main{
+ 	margin-top: 3.5%;
+}
+
+h1.title { 
+	font-size: 50px;
+	font-family: 'Passion One', cursive; 
+	font-weight: 400; 
+}
+
+hr{
+	width: 10%;
+	color: #fff;
+}
+
+.form-group{
+	margin-bottom: 15px;
+}
+
+label{
+	margin-bottom: 15px;
+}
+
+input,
+input::-webkit-input-placeholder {
+    font-size: 11px;
+    padding-top: 3px;
+}
+
+.main-login{
+	border: 1px medium;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    border-radius: 7px;
+    -moz-box-shadow: 0 0 1em rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0 0 1em rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.3);
+
+}
+
+.mai-margin{
+	margin-left: 3px;
+	margin-right: 3px;
+}
+
+.main-center{
+ 	margin-top: 30px;
+ 	margin: 0 auto;
+ 	max-width: 330px;
+    padding: 40px 40px;
+
+}
+
+.login-button{
+	margin-top: 5px;
+}
+
+.login-register{
+	font-size: 11px;
+	text-align: center;
+}
+
+/*************FOOTER DOCUMENT**************/
+
+.fade-in {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 1.5s;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0.25;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+/*************FOOTER DOCUMENT**************/
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   text-align: center;
+}
+
+.valor{
+	position: static;
+}
+
+.anti-valor{
+	position: fixed;
+}
+
+.exibir{
+	display: none;
+}
+/*************TITLE**************/
+.myTitle{
+	font-family: 'Oxygen', sans-serif;
+	padding-top: 10px;
+}
+
+/*************PERFIL**************/
+.foto {
+    border-radius: 50%;
+}
+.campos {
+	vertical-align: bottom;
+	border: 1px medium;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    border-radius: 7px;
+    -moz-box-shadow: 0 0 1em rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0 0 1em rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.3);
+}
+
+.allert{
+	-moz-box-shadow: 0 0 1em rgba(255, 0, 0, 0.5);
+    -webkit-box-shadow: 0 0 1em rgba(255, 0, 0, 0.5);
+    box-shadow: 0 0 1em rgba(255, 0, 0, 0.5);
+}
+.mostrar{
+	display: block;
+}
+.nao_mostrar{
+	display:none;
+}
+
+/*********** FILE PICKER *********************/
+
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile + label {
+    font-size: 10pt;
+    border: 1px solid;
+    border-radius: 5%;
+    margin-top: 10%;
+    padding: 3px;
+    font-weight: 700;
+    color: black;
+    background-color:white;
+    display: inline-block;
+    cursor: pointer; /* "hand" cursor */
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+	border: 1px solid white;
+    background-color: #265173;
+    color: white;
+}
+
+.inputfile:focus + label {
+	outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
+}
+
+/*------- BOTTOESFORM-----**/
+.vis{
+	display: block;
+}
+.inv{
+	display: none;
+}
+.vis-total{
+	display: block;
+}
+.inv-total{
+	display: none;
+}
+.somenor{
+	display: none;
+}
+
+.inv_no_change{
+	display: none;
+}
+
+.vis_no_change{
+	display: block;
+}
+
+/*COISAS DA NAV*/
+.letra{
+	color: #ffffff;
+}
+.letra:hover{
+	color: #ffffff;
+}
+.membros{
+	color: #000000;
+	background-color: #ffffff;
+}
+
+.membros:hover{
+	color: #000000;
+}
+
+.rodape{
+	position: fixed;
+}
+
+.always_static{
+	position: static;
+}
+
+.tela-maior{
+	display: block;
+}
+.tela-menor{
+	display: none;
+}
+
+@media only screen and (max-width:576px){ 
+	.vis{
+		display: none;
+	}
+	.inv{
+		display: block;
+}
+}
+
+@media only screen and (max-width:768px) {
+	.foto{
+		height: 200px;
+		width: auto;
+	}
+	.footer{
+		position: static;
+	}
+	.esconder{
+		display:none;
+	}
+	.exibir{
+		display: block;
+	}
+	.inputfile + label {
+		margin-top: 0;
+	}
+	.vis-total{
+		display: none;
+	}
+	.somenor{
+		display: block;
+	}
+	.rodape{
+		position: fixed;
+	}
+	.tela-maior{
+		display: none;
+	}
+	.tela-menor{
+		display: block;
+	}
+	.botao-maldito{
+		float:right;
+	}
+	.logout{
+		margin-top: 15px;
+	}
+}
+
+
+@media only screen and (min-height: 1000px){
+	.footer{
+		position: fixed;
+	}
+}

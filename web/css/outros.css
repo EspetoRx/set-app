@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono');
+
+/*  MENSAGEM DE ERRO    */
+
+div#erro{
+    margin-top: 70px;
+    width: 600px
+    max-width: 100%;
+    display: block;
+}
+
+div#erro p{
+    font-family: 'Ubuntu Mono', monospace;
+    color: white; /*#55ff55;*/
+    font-size: 15pt;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: 100;
+}
+
+@media(max-width:500px;){
+    div#erro p{
+        font-size: 10pt;
+    }
+}

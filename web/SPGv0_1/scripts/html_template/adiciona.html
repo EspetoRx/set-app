@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <!-- JAVASCRIPT DA FOTO -->
+	<script language="javascript" type="text/javascript">
+		function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#foto')
+                    .attr('src', e.target.result);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+	function validaSenha(){ 
+		  if (document.getElementById('resenha').value != document.getElementById('senha').value) {
+			document.formulario.senha.value = '';
+			document.formulario.resenha.value = '';
+			document.formulario.senha.focus();
+			document.getElementById('senha').setAttribute("style","border: 2px solid red;");
+			document.getElementById('resenha').setAttribute("style","border: 2px solid red;");
+			
+		  } else {
+			document.getElementById('senha').setAttribute("style","border: 2px solid green;");
+			document.getElementById('resenha').setAttribute("style","border: 2px solid green;");
+		  }
+	}
+	function validaSenha1(){ 
+		  if (document.getElementById('resenha').value != 			document.getElementById('senha').value) {
+			document.getElementById('senha').setAttribute("style","border: 2px solid red;");
+			document.getElementById('resenha').setAttribute("style","border: 2px solid red;");
+			
+		  } else {
+			document.getElementById('senha').setAttribute("style","border: 2px solid green;");
+			document.getElementById('resenha').setAttribute("style","border: 2px solid green;");
+		  }
+	} 
+	</script>
+  </head>
+  <body>
+	<form id="formulario" name="formulario" method="post" action="guarda_usuario.php" enctype="multipart/form-data">
+	<div class="container">
+    <div class="row">
+		<div class="col-md-12">
+			<center>
+				<h3>Adicionar Membro</h3>
+				<br>
+			</center>
+		</div>
+		<div class="row">
+			<div class="col-md-2">
+				<center><img id="foto" name="foto" class="foto" src="../images/none.png" width="100%" /></center>&nbsp;				
+				<center><input type="file" name="file" id="file" class="inputfile" onChange="readURL(this);" required/>
+					<label for="file">Inserir Avatar</label></center>
+			</div>
+			<div class="col-md-5">
+				<div class="row">
+					<div class="col-md-12">
+						<h4>Nome</h4>
+					</div>
+					<div class="col-md-12">
+						<input type="text" name="nome" id="nome" class="form-control campos" placeholder="Nome completo." required/>
+						<br>
+					</div>
+					<div class="col-md-12">
+						<h4>Data de admissão</h4>
+					</div>
+					<div class="col-md-12">
+						<input type="date" name="data" id="data" class="form-control campos" value="{data}" required/>
+						<br>
+					</div>
+					<div class="col-md-12">
+						<h4>E-mail</h4>
+					</div>
+					<div class="col-md-12">
+						<input type="text" name="email" id="email" class="form-control campos" placeholder="exemplo@ufv.br" required/>
+						<br>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-5">
+				<div class="row">
+					<div class="col-md-12">
+						<h4>Github</h4>
+					</div>
+					<div class="col-md-12">
+						<input type="text" name="github" id="github" class="form-control campos" placeholder="Link para o github pessaol." required/>
+						<br />
+					</div>
+					<br>
+					<div class="col-md-12">
+						<h4>Linked-in</h4>
+					</div>
+					<div class="col-md-12">
+						<input type="text" name="linkedin" id="linkedin" class="form-control campos" placeholder="Link para o linkedin pessoal." required/>
+						<br />
+					</div>
+					<div class="col-md-12">
+						<h4>Tipo de Usuario</h4>
+					</div>
+					<div class="col-md-12">
+						{OPT_BLOCK}
+						<br />
+					</div>
+				</div>
+			</div>
+			<div class="offset-md-2 col-md-5">
+				<div class="row">
+					<div class="col-md-12">
+						<h4>Senha</h4>
+					</div>
+					<div class="col-md-12">
+						<input type="password" name="senha" id="senha" class="form-control campos" placeholder="Entre com sua senha." required onblur="validaSenha1()"/>
+						<br>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-5">
+				<div class="row">
+					<div class="col-md-12">
+						<h4>Re-insira sua senha</h4>
+					</div>
+					<div class="col-md-12">
+						<input type="password" name="resenha" id="resenha" class="form-control campos" placeholder="Re-entre com sua senha." required onblur="validaSenha()"/>
+						<br>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--<div class="row" width="100%">-->
+			
+		<!--</div>-->
+	</div>
+	
+	<div class="row vis text-center">
+		<br>
+		<div class="offset-md-2 col-md-10">
+			<a href="painel_adm.php"><button type="button" class="btn btn-lg bg-light"  align="left">Cancelar</button></a>
+			&nbsp; &nbsp;
+			<button type="submit" class="btn btn-lg" style="background-color: #285273; color: #ffffff;" align="left">Salvar</button>
+		</div>
+	</div>
+	<div class="row inv">
+		<div class="col-sm-1 inv">
+			<a href="painel_adm.php"><button type="button" class="btn btn-lg float-left bg-light"  align="left">Cancelar</button></a>
+			&nbsp; &nbsp;
+			<button type="submit" class="btn btn-lg float-right" style="background-color: #285273; color: #ffffff;" align="left">Salvar</button>
+		</div>
+	</div>
+	</div>
+	</form>
+  </body>
+</html>

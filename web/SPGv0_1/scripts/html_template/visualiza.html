@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <!-- JAVASCRIPT DA FOTO -->
+	<script language="javascript" type="text/javascript">
+		function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#foto')
+                    .attr('src', e.target.result);   
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+	</script>
+  </head>
+  <body>
+	
+	<div class="container">
+    <div class="row">
+		<div class="col-md-12">
+			<center>
+				<h3>{TITLE}</h3>
+				<br>
+			</center>
+		</div>
+		<div class="row">
+			<div class="col-md-2">
+				<center><img class="foto" src="upload/{foto}" width="100%" /></center>&nbsp;
+				<div class="{altera}">
+					<form action="altera_foto.php?email={email}" method="post" id="altera_foto" enctype="multipart/form-data">
+					<center><input type="file" name="file" id="file" class="inputfile" onChange="document.getElementById('altera_foto').submit();" required {disabled}/><label for="file">Alterar avatar</label></center>
+					</form>
+					<br>
+					<center>{msg}</center>
+				</div>							
+			</div>
+			
+			
+			<div class="col-md-10" >
+			<form method="post" action="{act}.php" id="altera">
+				<div class="row">
+					<div class="col-md-6">
+							<div class="col-md-12">
+								<h4>Nome</h4>
+							</div>
+							<div class="col-md-12">
+								<input type="text" name="nome" id="nome" class="form-control campos" placeholder="Nome completo." value="{nome}" required {disabled}/>
+								<br>
+							</div>
+							<div class="col-md-12">
+								<h4>Data de admissão</h4>
+							</div>
+							<div class="col-md-12">
+								<input type="date" name="data" id="data" class="form-control campos" value="{data}" required {disabled} {data_admin}/>
+								<br>
+							</div>
+							<div class="col-md-12">
+								<h4>E-mail</h4>
+							</div>
+							<div class="col-md-12">
+								<input type="text" name="email" id="email" class="form-control campos" placeholder="exemplo@ufv.br" value="{email}" required {disabled} {emailonly}/>
+								<br>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="col-md-12">
+							<h4>Github</h4>
+						</div>
+						<div class="col-md-12">
+							<input type="text" name="github" id="github" class="form-control campos" placeholder="Link para o github pessoal." value="{github}" required {disabled}/>
+							<br />
+						</div>
+						<div class="col-md-12">
+							<h4>Linked-in</h4>
+						</div>
+						<div class="col-md-12">
+							<input type="text" name="linkedin" id="linkedin" class="form-control campos" placeholder="Link para o linkedin pessoal." value="{linkedin}" required {disabled}/>
+							<br />
+						</div>
+						<div class="col-md-12">
+							<h4>Tipo de Usuario</h4>
+						</div>
+						<div class="col-md-12">
+							{OPT_BLOCK}
+							<br />
+						</div>
+					</div>
+					<div class="col-md-12 {visibility}">
+					<a href="{voltar}"><button type="button" class="btn btn-lg float-right bg-light">Voltar</button></a>
+					</div>
+					<div class="col-md-6 {visibil}">
+						<div class="col-md-12">
+							<a href="{voltar}"><button type="button" class="btn btn-lg float-right bg-light">Voltar</button></a>
+						</div>
+					</div>
+					<div class="col-md-6 {visibil}">
+						<div class="col-md-12">
+							<a href="{exclusion}"><button type="{buttao}" class="btn btn-lg float-left" style="background-color: #285273; color: #ffffff;">{labelbtn}</button></a>
+						</div>
+					</div>
+					<div class="col-md-12 somenor {visibil}">
+						<center>
+							<a href="{voltar}"><button type="button" class="btn btn-lg float-left bg-light">Voltar</button></a>
+							<a href="{exclusion}"><button type="{buttao}" class="btn btn-lg float-right" style="background-color: #285273; color: #ffffff;">{labelbtn}</button></a>
+						</center>
+					</div>
+				</div>
+			</form>
+			</div>
+	</div>
+	</div>
+	</div>
+  </body>
+</html>

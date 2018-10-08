@@ -1,0 +1,78 @@
+#sanfona label h2{
+  font-size: 1em;
+  margin: 0;
+}
+
+.foto-perfil{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  float: left;
+  clear: both;
+}
+
+.diretores {
+  float: left;
+  clear: both;
+  width: 100%;
+	height: auto;
+  display: block;
+  justify-content: center;
+  align-items: center;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	overflow-y: hidden;
+}
+
+.diretores article{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+article footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+article footer a{
+  padding: 5%;
+}
+
+article h3{
+  text-align: center;
+}
+
+.membro_setapp {
+  float: left;
+  clear: both;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.membro_setapp article{
+  
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .diretores .foto-perfil {
+  margin: 3%;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  float: left;
+  clear: both;
+}
+
+.diretores p{
+  width: 50%;
+} */
