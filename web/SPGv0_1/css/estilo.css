@@ -218,7 +218,7 @@ input::-webkit-input-placeholder {
 }
 
 .rodape{
-	position: fixed;
+	position: static;
 }
 
 .always_static{
