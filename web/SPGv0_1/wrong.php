@@ -6,7 +6,6 @@ $tpl = new Template("index.html");
 
 $tpl->erro = "<center><p style='color: red;'>E-mail ou senha inválidos.</center>";
 $tpl->allert= "allert";
-$tpl->so_este = "anti-valor";
 
 $tpl->show();
 ?>

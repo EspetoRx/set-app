@@ -7,7 +7,7 @@ body, html{
 }
 
 .main{
- 	margin-top: 3.5%;
+ 	margin-top: 3%;
 }
 
 h1.title { 
@@ -89,7 +89,7 @@ input::-webkit-input-placeholder {
 
 /*************FOOTER DOCUMENT**************/
 .footer {
-   position: static;
+   position: fixed;
    left: 0;
    bottom: 0;
    width: 100%;
