@@ -41,7 +41,7 @@ if(isset($_SESSION['login'])){
 	/*-------CONSULTA DE GRAVAÇÃO--------*/
 	$sql = "UPDATE usuario SET tipo = '$tipo' WHERE email='$email'";
 	mysqli_query($con, $sql);
-	$sql = "UPDATE perfil JOIN usuario SET data_admissao = '$data', linkedin = '$linkedin', github = '$github' WHERE email = '$email' AND perfil.id = usuario.perfil_id";
+	$sql = "UPDATE perfil JOIN usuario SET nome = '$nome', data_admissao = '$data', linkedin = '$linkedin', github = '$github' WHERE email = '$email' AND perfil.id = usuario.perfil_id";
 	mysqli_query($con, $sql);
 		
 		
