@@ -80,7 +80,7 @@ if(isset($_SESSION['login'])){
 	$tpl2->exclusion = "exclui.php?email=".$email;
 	$tpl2->labelbtn = "Excluir";
 	$tpl2->buttao = "button";
-	$tpl2->voltar = "painel_adm.php";
+	$tpl2->voltar = "remove_usuario.php";
 	$tpl2->TITLE = "Exclusão de Membro";
 	$tpl2->somenor = "somenor";
 	$tpl->CONTENT = $tpl2->parse();

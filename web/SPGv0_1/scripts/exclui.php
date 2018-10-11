@@ -18,7 +18,6 @@ if(isset($_SESSION['login'])){
 	$login = $_SESSION['login'];
 	$email = $_GET['email'];
 	
-	
 	/*----BANCO DE DADOS E CONEXÃO COM O MYSQL-------*/
 	$con = mysqli_connect("us-cdbr-iron-east-01.cleardb.net", "b4374046414e9f", "05e528e1") or die  ("Sem conexão com o servidor");
 	$select = mysqli_select_db($con, "heroku_7d1bac14eb9e1ae") or die("Sem acesso ao DB, Entre em contato com o Administrador.");
@@ -37,13 +36,13 @@ if(isset($_SESSION['login'])){
 		
 	$sql = "DELETE FROM perfil WHERE id='$idperfil'";
 	$deleta_perfil = mysqli_query($con, $sql);
-	
-		
+
+
 	/*---Dados de template---*/
 	header('Location: remove_usuario.php');
 		
 	/*---Carregamento do modelo---*/
-	$tpl->show();
+
 	}else{
 		/*---Dados de template---*/
 		$tpl = new Template("../template.html");
@@ -52,6 +51,7 @@ if(isset($_SESSION['login'])){
 		$tpl->painel_color = "color: #000000;";
 		$tpl->perfil_active = "color: #ffffff;";
 		$tpl->CONTENT = "<h2>Error 404<h2><h3>Você não tem nível de permissão suficiente para acessar esta página.</h3>";
+		header("Location: logout.php");
 		//$tpl->value = "anti-valor";
 		/*---Carregamento do modelo---*/
 		$tpl->show();

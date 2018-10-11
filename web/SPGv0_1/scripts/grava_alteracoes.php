@@ -98,7 +98,7 @@ if(isset($_SESSION['login'])){
 	$tpl2->TITLE = "Membro alterado com sucesso.";
 	$tpl->CONTENT = $tpl2->parse();
 		
-	//$tpl->value = "valor";
+	$tpl->so_este = "valor";
 
 		
 	/*---Carregamento do modelo---*/

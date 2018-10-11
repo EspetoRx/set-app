@@ -35,7 +35,7 @@ if(isset($_SESSION['login'])){
 	$sql = 	"SELECT * FROM usuario JOIN perfil WHERE usuario.perfil_id = id ORDER BY perfil.nOme ASC";
 	$usuarios = mysqli_query($con, $sql);
 	while($reg = mysqli_fetch_array($usuarios)){
-		if($contador%6 != 4){
+		if($contador%4 != 0){
 			$retorno .= "<div class='col-md-3'>
 					<div class='col-md-10 main-login'>
 						<br>
@@ -86,6 +86,7 @@ if(isset($_SESSION['login'])){
 		$tpl->painel_color = "color: #000000;";
 		$tpl->perfil_active = "color: #ffffff;";
 		$tpl->CONTENT = "<h2>Error 404<h2><h3>Você não tem nível de permissão suficiente para acessar esta página.</h3>";
+		header("Location: logout.php");
 		//$tpl->value = "anti-valor";
 		/*---Carregamento do modelo---*/
 		$tpl->show();

@@ -65,7 +65,6 @@ if(isset($_SESSION['login'])){
     	$mysqlImg = addslashes(fread(fopen($nome_completo, "r"), $tamanhoImg));
     	$image = $mysqlImg; 
 	}
-		
 	/*- FIM ARQUIVOS DE IMAGEM-*/
 
 	/*-------------CHECA SE JÁ EXISTE---------------*/
@@ -132,7 +131,7 @@ if(isset($_SESSION['login'])){
 	$tpl2->voltar = "painel_adm.php";
 	$tpl2->TITLE = "Usuário novo adicionado.";
 	$tpl->CONTENT = $tpl2->parse();
-	//$tpl->value = "valor";
+	$tpl->so_este = "valor";
 
 	/*---Carregamento do modelo---*/
 

@@ -74,7 +74,7 @@ if(isset($_SESSION['login'])){
 	$tpl2->OPT_BLOCK = $opt_block;
 	$tpl2->foto = "getImage.php?PicNum=$profile_id";
 	$tpl2->disabled = "";
-	//$tpl2->emailonly = "disabled";
+	$tpl2->emailonly = "readonly";
 	$tpl2->visibility = "inv-total";
 	$tpl2->visibil = "vis-total";
 	$tpl2->labelbtn = "Alterar";

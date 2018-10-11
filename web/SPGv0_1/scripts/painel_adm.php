@@ -181,7 +181,7 @@ if(isset($_SESSION['login'])){
 				<div class='col-md-12'>
 					<center>
 					<a href=\"adiciona.php\">
-						<button type=\"button\" class=\"btn btn-lg\" style=\"background-color: #285273; color: #ffffff;\" align=\"left\">Adicionar Membro</button>
+						<button type=\"button\" class=\"btn btn-md\" style=\"background-color: #285273; color: #ffffff;\" align=\"left\">Adicionar Membro</button>
 						</a>
 					</center>
 				</div>
@@ -189,7 +189,7 @@ if(isset($_SESSION['login'])){
 					<br>
 					<center>
 					<a href='remove_usuario.php'>
-						<button type=\"button\" class=\"btn btn-lg\" style=\"background-color: #285273; color: #ffffff;\" align=\"left\">Remover Membro</button>
+						<button type=\"button\" class=\"btn btn-md\" style=\"background-color: #285273; color: #ffffff;\" align=\"left\">Remover Membro</button>
 					</a>
 					</center>
 				</div>
@@ -197,14 +197,14 @@ if(isset($_SESSION['login'])){
 					<br>
 					<center>
 					<a href='altera.php'>
-						<button type=\"button\" class=\"btn btn-lg\" style=\"background-color: #285273; color: #ffffff;\" align=\"left\">Alterar Membro</button>
+						<button type=\"button\" class=\"btn btn-md\" style=\"background-color: #285273; color: #ffffff;\" align=\"left\">Alterar Membro</button>
 						</a>
 					</center>
 				</div>
 				<div class='col-md-12'>
 					<br>
 					<center>
-						<button type=\"submit\" class=\"btn btn-lg\" style=\"background-color: #285273; color: #ffffff;\" align=\"left\">Calcular Valores<br>& Salvar Configurações</button>
+						<button type=\"submit\" class=\"btn btn-md\" style=\"background-color: #285273; color: #ffffff;\" align=\"left\">Calcular Valores<br>& Salvar Configurações</button>
 					</center>
 				</div>
 			</div>

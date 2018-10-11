@@ -35,7 +35,7 @@ if(isset($_SESSION['login'])){
 	$sql = 	"SELECT * FROM usuario JOIN perfil WHERE usuario.perfil_id = id ORDER BY perfil.nOme ASC";
 	$usuarios = mysqli_query($con, $sql);
 	while($reg = mysqli_fetch_array($usuarios)){
-		if($contador%6 != 4){
+		if($contador%4 != 0){
 			$retorno .= "<div class='col-md-3'>
 					<div class='col-md-10 main-login'>
 						<br>
@@ -73,7 +73,8 @@ if(isset($_SESSION['login'])){
 	$tpl->labeltitle = " - Alterar Membro";
 	$tpl2->USUARIOS = $retorno;
 	$tpl->CONTENT = $tpl2->parse();
-	//$tpl->value = "valor";
+	$tpl->so_este = "valor";
+	//$tpl2->onlyemail = "disabled";
 
 		
 	/*---Carregamento do modelo---*/
