@@ -262,6 +262,7 @@ input::-webkit-input-placeholder {
 .card{
 	border: 0 none !important;
 	display: inline-block;
+	width: 100%;
 }
 
 
@@ -315,7 +316,11 @@ input::-webkit-input-placeholder {
 	.anti-valor{
 		position: static;
 	}
-	
+	.card-columns {
+        -webkit-column-count:1;
+        -moz-column-count:1;
+        column-count:1;
+}
 }
 
 
