@@ -261,7 +261,7 @@ input::-webkit-input-placeholder {
 
 .card{
 	border: 0 none !important;
-	display: inline-block;
+	display: inline-block !important;
 	width: 100%;
 }
 

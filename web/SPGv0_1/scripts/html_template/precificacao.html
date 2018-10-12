@@ -36,38 +36,48 @@
 		function visualizarFrameworks(){
 			document.getElementById('frameworks').setAttribute('style','display: block;');
 		}
+		function visualizarNivelPermissao(){
+			document.getElementById('nivel-permissao').setAttribute('style','display: block;');
+		}
 		function desvisualizarTemplates(){
-			document.getElementById('templates').setAttribute('style','display: none;');
+			document.getElementById('templates').setAttribute('style','display: none !important;');
 		}
 		function desvisualizarSessionCookies(){
-			document.getElementById('sessioncookies').setAttribute('style','display: none;');
+			document.getElementById('sessioncookies').setAttribute('style','display: none !important;');
+			document.getElementsByName('session-cookies').item(1).checked = 'true';
 		}
 		function desvisualizarDinamizadas(){
-			document.getElementById('paginasDinamizadas').setAttribute('style','display: none;');
+			document.getElementById('paginasDinamizadas').setAttribute('style','display: none !important;');
 		}
 		function desvisualizarCarrinho(){
-			document.getElementById('carrinho').setAttribute('style','display: none;');
+			document.getElementById('carrinho').setAttribute('style','display: none !important;');
+			document.getElementsByName('carrinho').item(1).checked = 'true';
 		}
 		function desvisualizarScript(){
-			document.getElementById('scripts').setAttribute('style','display: none;');
+			document.getElementById('scripts').setAttribute('style','display: none !important;');
+			document.getElementsByName('scripts').item(1).checked = 'true';
 		}
 		function desvisualizarClasses(){
-			document.getElementById('classes').setAttribute('style','display: none;');
+			document.getElementById('classes').setAttribute('style','display: none !important;');
 		}
 		function desvisualizarPagamento(){
-			document.getElementById('pagamento').setAttribute('style','display: none;');
+			document.getElementById('pagamento').setAttribute('style','display: none !important;');
+			document.getElementsByName('pagamento').item(1).checked = 'true';
 		}
 		function desvisualizarResponsividade(){
-			document.getElementById('responsividade').setAttribute('style','display: none;');
+			document.getElementById('responsividade').setAttribute('style','display: none !important;');
 		}
 		function desvisualizarBancoDados(){
-			document.getElementById('banco-dados').setAttribute('style','display: none;');
+			document.getElementById('banco-dados').setAttribute('style','display: none !important;');
 		}
 		function desvisualizarClassesPersistentes(){
-			document.getElementById('classes-persistentes').setAttribute('style','display: none;');
+			document.getElementById('classes-persistentes').setAttribute('style','display: none !important;');
 		}
 		function desvisualizarFrameworks(){
-			document.getElementById('frameworks').setAttribute('style','display: none;');
+			document.getElementById('frameworks').setAttribute('style','display: none !important;');
+		}
+		function desvisualizarNivelPermissao(){
+			document.getElementById('nivel-permissao').setAttribute('style','display: none !important;');
 		}
 	</script>
   </head>
@@ -88,7 +98,7 @@
 				<div class="input-group">
 				  <div class="input-group-prepend">
 					<div class="input-group-text">
-					<input type="radio" aria-label="Radio button" name="kind" value="morestatic" onClick="desvisualizarTemplates();desvisualizarSessionCookies(); desvisualizarDinamizadas(); desvisualizarCarrinho(); desvisualizarScript(); desvisualizarClasses(); desvisualizarPagamento(); desvisualizarBancoDados(); desvisualizarClassesPersistentes(); desvisualizarFrameworks();" checked>
+					<input type="radio" aria-label="Radio button" name="kind" value="morestatic" onClick="desvisualizarTemplates();desvisualizarSessionCookies(); desvisualizarDinamizadas(); desvisualizarCarrinho(); desvisualizarScript(); desvisualizarClasses(); desvisualizarPagamento(); desvisualizarBancoDados(); desvisualizarClassesPersistentes(); desvisualizarFrameworks();  desvisualizarNivelPermissao();" checked>
 					</div>
 				  </div>
 				  <label for="kind" class="form-control" aria-label="Text input with radio button" alt="alguma coisa">Mais Estático</label>
@@ -96,7 +106,7 @@
 				<div class="input-group">
 				  <div class="input-group-prepend">
 					<div class="input-group-text">
-					<input type="radio" aria-label="Radio button" name="kind" value="moredinamic" onClick="visualizarTemplates(); visualizarSessionCookies(); visualizarScript(); visualizarFrameworks();">
+					<input type="radio" aria-label="Radio button" name="kind" value="moredinamic" onClick="visualizarScript();">
 					</div>
 				  </div>
 				  <label for="kind" class="form-control" aria-label="Text input with radio button">Estático com algo dinamizado.</label>
@@ -104,7 +114,7 @@
 				<div class="input-group">
 				  <div class="input-group-prepend">
 					<div class="input-group-text">
-					<input type="radio" aria-label="Radio button" name="kind" value="moredinamic">
+					<input type="radio" aria-label="Radio button" name="kind" value="moredinamic" onClick="visualizarTemplates(); visualizarSessionCookies(); visualizarScript(); visualizarFrameworks();">
 					</div>
 				  </div>
 				  <label for="kind" class="form-control" aria-label="Text input with radio button">Mais Dinâmico</label>
@@ -209,7 +219,7 @@
 					  <label for="checkbox" type="text" class="form-control" aria-label="Text input with checkbox">Ajax</label>
 				  </div>
 			  </div>
-			  <div class="card" id="frameworks" style="display: none;">
+			  <div class="card" id="frameworks" style="display: none !important;">
 				  <h5>Frameworks</h5>
 				  <div class="input-group mb-3">
 					  <div class="input-group-prepend">
@@ -274,8 +284,8 @@
 				  <label for="kind" class="form-control" aria-label="Text input with radio button">Não</label>
 			    </div>
 			  </div>
-			  <div class="card" id="responsividade" style="display: none;">
-				  <h5>Framework de responsividade?</h5>
+			  <div class="card" id="responsividade" style="display: none !important;">
+				  <h5>Framework de responsividade</h5>
 				  <div class="input-group">
 				  <div class="input-group-prepend">
 					<div class="input-group-text">
@@ -309,7 +319,7 @@
 				  <label for="kind" class="form-control" aria-label="Text input with radio button">Materialize</label>
 			    </div>
 			  </div>
-			  <div class="card" id="scripts" style="display: none;">
+			  <div class="card" id="scripts" style="display: none !important;">
 				<h5>Necessário script de dinamização?</h5>
 				  <div class="input-group">
 				  <div class="input-group-prepend">
@@ -328,7 +338,7 @@
 				  <label for="kind" class="form-control" aria-label="Text input with radio button">Não</label>
 			    </div>
 			  </div>
-			  <div class="card" id="templates" style="display: none;">
+			  <div class="card" id="templates" style="display: none !important;">
 				<h5>Será necessário dinamizar páginas por templates?</h5>
 				  <div class="input-group">
 				  <div class="input-group-prepend">
@@ -347,7 +357,7 @@
 				  <label for="kind" class="form-control" aria-label="Text input with radio button">Não</label>
 			    </div>
 			  </div>
-			  <div class="card" id="paginasDinamizadas" style="display: none;">
+			  <div class="card" id="paginasDinamizadas" style="display: none !important;">
 				<h5>Quantas páginas serão dinamizadas?</h5>
 				  <div class="input-group">
 				  <div class="input-group-prepend">
@@ -375,7 +385,7 @@
 				  <input type="number" name="dinamizadas_number" id="dinamizadas_number" class="form-control" min="1" pattern="^[0-9]+" aria-label="Text input with radio button" value="1">
 			    </div>
 			  </div>
-			<div class="card" id="classes" style="display: none;">
+			<div class="card" id="classes" style="display: none !important;">
 				<h5>Qual o número de classes que serão usadas?</h5>
 				  <div class="input-group">
 				  <div class="input-group-prepend">
@@ -403,7 +413,7 @@
 				  <input type="number" name="classes_number" id="classes_number" class="form-control" min="1" pattern="^[0-9]+" aria-label="Text input with radio button" value="1">
 			    </div>
 			  </div>
-			  <div class="card" id="banco-dados" style="display: none;">
+			  <div class="card" id="banco-dados" style="display: none !important;">
 				<h5>Será necessário Banco de Dados?</h5>
 				  <div class="input-group">
 				  <div class="input-group-prepend">
@@ -422,7 +432,7 @@
 				  <label for="kind" class="form-control" aria-label="Text input with radio button">Não</label>
 			    </div>
 			  </div>
-			  <div class="card" id="classes-persistentes" style="display: block;">
+			  <div class="card" id="classes-persistentes" style="display: none !important;">
 				<h5>Qual o número de classes persistentes?</h5>
 				  <div class="input-group">
 				  <div class="input-group-prepend">
@@ -450,12 +460,12 @@
 				  <input type="number" name="classes_persistentes_number" id="classes_persistentes_number" class="form-control" min="1" pattern="^[0-9]+" aria-label="Text input with radio button" value="1">
 			    </div>
 			  </div>
-			  <div class="card" id="sessioncookies" style="display: none;">
+			  <div class="card" id="sessioncookies" style="display: none !important;">
 				<h5>Será necessário trabalhar com sessão ou cookies?</h5>
 				  <div class="input-group">
 				  <div class="input-group-prepend">
 					<div class="input-group-text">
-					<input type="radio" aria-label="Radio button" name="session-cookies" value="1" onClick="visualizarCarrinho();">
+					<input type="radio" aria-label="Radio button" name="session-cookies" value="1" onClick="visualizarCarrinho();visualizarNivelPermissao();">
 					</div>
 				  </div>
 				  <label for="kind" class="form-control" aria-label="Text input with radio button">Sim</label>
@@ -463,13 +473,13 @@
 				<div class="input-group">
 				  <div class="input-group-prepend">
 					<div class="input-group-text">
-					<input type="radio" aria-label="Radio button" name="session-cookies" value="0" checked onClick="desvisualizarCarrinho();">
+					<input type="radio" aria-label="Radio button" name="session-cookies" value="0" checked onClick="desvisualizarCarrinho(); desvisualizarNivelPermissao();">
 					</div>
 				  </div>
 				  <label for="kind" class="form-control" aria-label="Text input with radio button">Não</label>
 			    </div>
 			  </div>
-			  <div class="card" id="carrinho" style="display: none;">
+			  <div class="card" id="carrinho" style="display: none !important;">
 				<h5>Possui Carrinho de compras?</h5>
 				  <div class="input-group">
 				  <div class="input-group-prepend">
@@ -488,7 +498,26 @@
 				  <label for="kind" class="form-control" aria-label="Text input with radio button">Não</label>
 			    </div>
 			  </div>
-			  <div class="card" id="pagamento" style="display: none;">
+			  <div class="card" id="nivel-permissao" style="display: none !important;">
+				<h5>Necessita de níveis de permissao?</h5>
+				  <div class="input-group">
+				  <div class="input-group-prepend">
+					<div class="input-group-text">
+					<input type="radio" aria-label="Radio button" name="nivel-permissao" value="1" onClick="">
+					</div>
+				  </div>
+				  <label for="kind" class="form-control" aria-label="Text input with radio button">Sim</label>
+			    </div>
+				<div class="input-group">
+				  <div class="input-group-prepend">
+					<div class="input-group-text">
+					<input type="radio" aria-label="Radio button" name="nivel-permissao" value="0" onClick="desvisualizarPagamento();" checked>
+					</div>
+				  </div>
+				  <label for="kind" class="form-control" aria-label="Text input with radio button">Não</label>
+			    </div>
+			  </div>
+			  <div class="card" id="pagamento" style="display: none !important;">
 				<h5>Possui sistema de pagamento online?</h5>
 				  <div class="input-group">
 				  <div class="input-group-prepend">
@@ -510,7 +539,8 @@
 		</div>
 		<div class="col-md-12">
 			<center>
-				<button type="submit" class="btn btn-primary">Submit</button>
+				<br>
+				<button type="submit" class="btn btn-lg" style="background-color: #285273; color: #ffffff;">Calcula Preço</button>
 			</center>
 		</div>
 	  </form>
