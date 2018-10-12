@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+	<script type="text/javascript">
+		function visualizarTemplates(){
+			document.getElementById('templates').setAttribute('style','display: block;');
+		}
+		function visualizarSessionCookies(){
+			document.getElementById('sessioncookies').setAttribute('style','display: block;');
+		}
+		function visualizarDinamizadas(){
+			document.getElementById('paginasDinamizadas').setAttribute('style','display: block;');
+		}
+		function visualizarCarrinho(){
+			document.getElementById('carrinho').setAttribute('style','display: block;');
+		}
+		function visualizarScript(){
+			document.getElementById('scripts').setAttribute('style','display: block;');
+		}
+		function visualizarClasses(){
+			document.getElementById('classes').setAttribute('style','display: block;');
+		}
+		function visualizarPagamento(){
+			document.getElementById('pagamento').setAttribute('style','display: block;');
+		}
+		function visualizarResponsividade(){
+			document.getElementById('responsividade').setAttribute('style','display: block;');
+		}
+		function visualizarBancoDados(){
+			document.getElementById('banco-dados').setAttribute('style','display: block;');
+		}
+		function visualizarClassesPersistentes(){
+			document.getElementById('classes-persistentes').setAttribute('style','display: block;');
+		}
+		function visualizarFrameworks(){
+			document.getElementById('frameworks').setAttribute('style','display: block;');
+		}
+		function desvisualizarTemplates(){
+			document.getElementById('templates').setAttribute('style','display: none;');
+		}
+		function desvisualizarSessionCookies(){
+			document.getElementById('sessioncookies').setAttribute('style','display: none;');
+		}
+		function desvisualizarDinamizadas(){
+			document.getElementById('paginasDinamizadas').setAttribute('style','display: none;');
+		}
+		function desvisualizarCarrinho(){
+			document.getElementById('carrinho').setAttribute('style','display: none;');
+		}
+		function desvisualizarScript(){
+			document.getElementById('scripts').setAttribute('style','display: none;');
+		}
+		function desvisualizarClasses(){
+			document.getElementById('classes').setAttribute('style','display: none;');
+		}
+		function desvisualizarPagamento(){
+			document.getElementById('pagamento').setAttribute('style','display: none;');
+		}
+		function desvisualizarResponsividade(){
+			document.getElementById('responsividade').setAttribute('style','display: none;');
+		}
+		function desvisualizarBancoDados(){
+			document.getElementById('banco-dados').setAttribute('style','display: none;');
+		}
+		function desvisualizarClassesPersistentes(){
+			document.getElementById('classes-persistentes').setAttribute('style','display: none;');
+		}
+		function desvisualizarFrameworks(){
+			document.getElementById('frameworks').setAttribute('style','display: none;');
+		}
+	</script>
+  </head>
+  <body>
+	<div class="container-fluid">
+    <div class="row">
+		<div class="col-md-12">
+			<center>
+				<h3>Precificar Serviço</h3>
+				<br>
+			</center>
+		</div>
+	</div>
+	<form>
+		<div class="card-columns">
+			  <div class="card">
+				<h5>O site é estático ou dinâmico?</h5>
+				<div class="input-group">
+				  <div class="input-group-prepend">
+					<div class="input-group-text">
+					<input type="radio" aria-label="Radio button" name="kind" value="morestatic" onClick="desvisualizarTemplates();desvisualizarSessionCookies(); desvisualizarDinamizadas(); desvisualizarCarrinho(); desvisualizarScript(); desvisualizarClasses(); desvisualizarPagamento(); desvisualizarBancoDados(); desvisualizarClassesPersistentes(); desvisualizarFrameworks();" checked>
+					</div>
+				  </div>
+				  <label for="kind" class="form-control" aria-label="Text input with radio button" alt="alguma coisa">Mais Estático</label>
+			    </div>
+				<div class="input-group">
+				  <div class="input-group-prepend">
+					<div class="input-group-text">
+					<input type="radio" aria-label="Radio button" name="kind" value="moredinamic" onClick="visualizarTemplates(); visualizarSessionCookies(); visualizarScript(); visualizarFrameworks();">
+					</div>
+				  </div>
+				  <label for="kind" class="form-control" aria-label="Text input with radio button">Estático com algo dinamizado.</label>
+			    </div>
+				<div class="input-group">
+				  <div class="input-group-prepend">
+					<div class="input-group-text">
+					<input type="radio" aria-label="Radio button" name="kind" value="moredinamic">
+					</div>
+				  </div>
+				  <label for="kind" class="form-control" aria-label="Text input with radio button">Mais Dinâmico</label>
+			    </div>
+			  </div>
+			  <div class="card" id="numeroPaginas">
+				<h5>Quantas páginas estáticas serão?</h5>
+				<div class="input-group">
+				  <div class="input-group-prepend">
+					<div class="input-group-text">
+					<input type="radio" aria-label="Radio button" name="pagenumber" value="1" checked>
+					</div>
+				  </div>
+				  <label for="kind" class="form-control" aria-label="Text input with radio button">Uma página</label>
+			    </div>
+				<div class="input-group">
+				  <div class="input-group-prepend">
+					<div class="input-group-text">
+					<input type="radio" aria-label="Radio button" name="pagenumber" value="2">
+					</div>
+				  </div>
+				  <label for="kind" class="form-control" aria-label="Text input with radio button">Três páginas</label>
+			    </div>
+				  <div class="input-group">
+				  <div class="input-group-prepend">
+					<div class="input-group-text">
+					<input type="radio" aria-label="Radio button" name="pagenumber" value="3">
+					</div>
+				  </div>
+				  <label for="kind" class="form-control" aria-label="Text input with radio button">Outra quantidade</label>
+				  <input type="number" name="page_number" id="page_number" class="form-control" min="1" pattern="^[0-9]+" aria-label="Text input with radio button" value="1">
+			    </div>
+			  </div>
+			  <div class="card">
+				  <h5>Quantas sessões serão por página estática?</h5>
+				  <div class="input-group">
+				  <div class="input-group-prepend">
+					<div class="input-group-text">
+					<input type="radio" aria-label="Radio button" name="session" value="1" checked>
+					</div>
+				  </div>
+				  <label for="kind" class="form-control" aria-label="Text input with radio button">Uma sessão</label>
+			    </div>
+				<div class="input-group">
+				  <div class="input-group-prepend">
+					<div class="input-group-text">
+					<input type="radio" aria-label="Radio button" name="session" value="2">
+					</div>
+				  </div>
+				  <label for="kind" class="form-control" aria-label="Text input with radio button">Três sessões</label>
+			    </div>
+				  <div class="input-group">
+				  <div class="input-group-prepend">
+					<div class="input-group-text">
+					<input type="radio" aria-label="Radio button" name="session" value="3">
+					</div>
+				  </div>
+				  <label for="kind" class="form-control" aria-label="Text input with radio button">Outra quantidade</label>
+				  <input type="number" name="session_number" id="session_number" class="form-control" min="1" pattern="^[0-9]+" aria-label="Text input with radio button" value="1">
+			    </div>
+			  </div>
+			  <div class="card" id="tecnologias">
+				  <h5>Tecnologias a serem utilizadas</h5>
+				  <div class="input-group mb-3">
+					  <div class="input-group-prepend">
+						<div class="input-group-text">
+						  <input type="checkbox" aria-label="Checkbox for following text input">
+						</div>
+					  </div>
+					  <label for="checkbox" type="text" class="form-control" aria-label="Text input with checkbox">HTML 5</label>
+				  </div>
+				  <div class="input-group mb-3">
+					  <div class="input-group-prepend">
+						<div class="input-group-text">
+						  <input type="checkbox" aria-label="Checkbox for following text input">
+						</div>
+					  </div>
+					  <label for="checkbox" type="text" class="form-control" aria-label="Text input with checkbox">CSS 3</label>
+				  </div>
+				  <div class="input-group mb-3">
+					  <div class="input-group-prepend">
+						<div class="input-group-text">
+						  <input type="checkbox" aria-label="Checkbox for following text input">
+						</div>
+					  </div>
+					  <label for="checkbox" type="text" class="form-control" aria-label="Text input with checkbox">JavaScript</label>
+				  </div>
+				  <div class="input-group mb-3">
+					  <div class="input-group-prepend">
+						<div class="input-group-text">
+						  <input type="checkbox" aria-label="Checkbox for following text input">
+						</div>
+					  </div>
+					  <label for="checkbox" type="text" class="form-control" aria-label="Text input with checkbox">PHP</label>
+				  </div>
+				  <div class="input-group mb-3">
+					  <div class="input-group-prepend">
+						<div class="input-group-text">
+						  <input type="checkbox" aria-label="Checkbox for following text input">
+						</div>
+					  </div>
+					  <label for="checkbox" type="text" class="form-control" aria-label="Text input with checkbox">Ajax</label>
+				  </div>
+			  </div>
+			  <div class="card" id="frameworks" style="display: none;">
+				  <h5>Frameworks</h5>
+				  <div class="input-group mb-3">
+					  <div class="input-group-prepend">
+						<div class="input-group-text">
+						  <input type="checkbox" aria-label="Checkbox for following text input">
+						</div>
+					  </div>
+					  <label for="checkbox" type="text" class="form-control" aria-label="Text input with checkbox">Python + Django</label>
+				  </div>
+				  <div class="input-group mb-3">
+					  <div class="input-group-prepend">
+						<div class="input-group-text">
+						  <input type="checkbox" aria-label="Checkbox for following text input">
+						</div>
+					  </div>
+					  <label for="checkbox" type="text" class="form-control" aria-label="Text input with checkbox">Spring MVC</label>
+				  </div>
+			  </div>
+			  <div class="card" >
+				  <h5>Ferramentas de Gerenciamento</h5>
+				  <div class="input-group mb-3">
+					  <div class="input-group-prepend">
+						<div class="input-group-text">
+						  <input type="checkbox" aria-label="Checkbox for following text input">
+						</div>
+					  </div>
+					  <label for="checkbox" type="text" class="form-control" aria-label="Text input with checkbox">Git</label>
+				  </div>
+				  <div class="input-group mb-3">
+					  <div class="input-group-prepend">
+						<div class="input-group-text">
+						  <input type="checkbox" aria-label="Checkbox for following text input">
+						</div>
+					  </div>
+					  <label for="checkbox" type="text" class="form-control" aria-label="Text input with checkbox">Trello</label>
+				  </div>
+				  <div class="input-group mb-3">
+					  <div class="input-group-prepend">
+						<div class="input-group-text">
+						  <input type="checkbox" aria-label="Checkbox for following text input">
+						</div>
+					  </div>
+					  <label for="checkbox" type="text" class="form-control" aria-label="Text input with checkbox">WhatsApp / Telegram</label>
+				  </div>
+			  </div>
+			  <div class="card" id="responsivo" style="display: block;">
+				<h5>O site deverá ser responsivo?</h5>
+				  <div class="input-group">
+				  <div class="input-group-prepend">
+					<div class="input-group-text">
+					<input type="radio" aria-label="Radio button" name="responsive" value="1" onClick="visualizarResponsividade();">
+					</div>
+				  </div>
+				  <label for="kind" class="form-control" aria-label="Text input with radio button">Sim</label>
+			    </div>
+				<div class="input-group">
+				  <div class="input-group-prepend">
+					<div class="input-group-text">
+					<input type="radio" aria-label="Radio button" name="responsive" value="0" checked onClick="desvisualizarResponsividade();">
+					</div>
+				  </div>
+				  <label for="kind" class="form-control" aria-label="Text input with radio button">Não</label>
+			    </div>
+			  </div>
+			  <div class="card" id="responsividade" style="display: none;">
+				  <h5>Framework de responsividade?</h5>
+				  <div class="input-group">
+				  <div class="input-group-prepend">
+					<div class="input-group-text">
+					<input type="radio" aria-label="Radio button" name="responsividade" value="1" checked>
+					</div>
+				  </div>
+				  <label for="kind" class="form-control" aria-label="Text input with radio button">Bootstrap</label>
+			    </div>
+				<div class="input-group">
+				  <div class="input-group-prepend">
+					<div class="input-group-text">
+					<input type="radio" aria-label="Radio button" name="responsividade" value="2" >
+					</div>
+				  </div>
+				  <label for="kind" class="form-control" aria-label="Text input with radio button">Bulma</label>
+			    </div>
+				<div class="input-group">
+				  <div class="input-group-prepend">
+					<div class="input-group-text">
+					<input type="radio" aria-label="Radio button" name="responsividade" value="3" >
+					</div>
+				  </div>
+				  <label for="kind" class="form-control" aria-label="Text input with radio button">uikit</label>
+			    </div>
+				<div class="input-group">
+				  <div class="input-group-prepend">
+					<div class="input-group-text">
+					<input type="radio" aria-label="Radio button" name="responsividade" value="4" >
+					</div>
+				  </div>
+				  <label for="kind" class="form-control" aria-label="Text input with radio button">Materialize</label>
+			    </div>
+			  </div>
+			  <div class="card" id="scripts" style="display: none;">
+				<h5>Necessário script de dinamização?</h5>
+				  <div class="input-group">
+				  <div class="input-group-prepend">
+					<div class="input-group-text">
+					<input type="radio" aria-label="Radio button" name="scripts" value="1" onClick="">
+					</div>
+				  </div>
+				  <label for="kind" class="form-control" aria-label="Text input with radio button">Sim</label>
+			    </div>
+				<div class="input-group">
+				  <div class="input-group-prepend">
+					<div class="input-group-text">
+					<input type="radio" aria-label="Radio button" name="scripts" value="0" onClick="" checked>
+					</div>
+				  </div>
+				  <label for="kind" class="form-control" aria-label="Text input with radio button">Não</label>
+			    </div>
+			  </div>
+			  <div class="card" id="templates" style="display: none;">
+				<h5>Será necessário dinamizar páginas por templates?</h5>
+				  <div class="input-group">
+				  <div class="input-group-prepend">
+					<div class="input-group-text">
+					<input type="radio" aria-label="Radio button" name="templates" value="1" onClick="visualizarDinamizadas();visualizarClasses();visualizarBancoDados();">
+					</div>
+				  </div>
+				  <label for="kind" class="form-control" aria-label="Text input with radio button">Sim</label>
+			    </div>
+				<div class="input-group">
+				  <div class="input-group-prepend">
+					<div class="input-group-text">
+					<input type="radio" aria-label="Radio button" name="templates" value="0" onClick="desvisualizarDinamizadas(); desvisualizarClasses(); desvisualizarBancoDados();" checked>
+					</div>
+				  </div>
+				  <label for="kind" class="form-control" aria-label="Text input with radio button">Não</label>
+			    </div>
+			  </div>
+			  <div class="card" id="paginasDinamizadas" style="display: none;">
+				<h5>Quantas páginas serão dinamizadas?</h5>
+				  <div class="input-group">
+				  <div class="input-group-prepend">
+					<div class="input-group-text">
+					<input type="radio" aria-label="Radio button" name="dinamizadas" value="1" checked>
+					</div>
+				  </div>
+				  <label for="kind" class="form-control" aria-label="Text input with radio button">Um conjunto</label>
+			    </div>
+				<div class="input-group">
+				  <div class="input-group-prepend">
+					<div class="input-group-text">
+					<input type="radio" aria-label="Radio button" name="dinamizadas" value="2">
+					</div>
+				  </div>
+				  <label for="kind" class="form-control" aria-label="Text input with radio button">Dois conjuntos</label>
+			    </div>
+				  <div class="input-group">
+				  <div class="input-group-prepend">
+					<div class="input-group-text">
+					<input type="radio" aria-label="Radio button" name="dinamizadas" value="3">
+					</div>
+				  </div>
+				  <label for="kind" class="form-control" aria-label="Text input with radio button">Outra quantidade</label>
+				  <input type="number" name="dinamizadas_number" id="dinamizadas_number" class="form-control" min="1" pattern="^[0-9]+" aria-label="Text input with radio button" value="1">
+			    </div>
+			  </div>
+			<div class="card" id="classes" style="display: none;">
+				<h5>Qual o número de classes que serão usadas?</h5>
+				  <div class="input-group">
+				  <div class="input-group-prepend">
+					<div class="input-group-text">
+					<input type="radio" aria-label="Radio button" name="classes" value="1" checked>
+					</div>
+				  </div>
+				  <label for="kind" class="form-control" aria-label="Text input with radio button">Uma Classe</label>
+			    </div>
+				<div class="input-group">
+				  <div class="input-group-prepend">
+					<div class="input-group-text">
+					<input type="radio" aria-label="Radio button" name="classes" value="2">
+					</div>
+				  </div>
+				  <label for="kind" class="form-control" aria-label="Text input with radio button">Duas Classes</label>
+			    </div>
+				  <div class="input-group">
+				  <div class="input-group-prepend">
+					<div class="input-group-text">
+					<input type="radio" aria-label="Radio button" name="classes" value="3">
+					</div>
+				  </div>
+				  <label for="kind" class="form-control" aria-label="Text input with radio button">Outra quantidade</label>
+				  <input type="number" name="classes_number" id="classes_number" class="form-control" min="1" pattern="^[0-9]+" aria-label="Text input with radio button" value="1">
+			    </div>
+			  </div>
+			  <div class="card" id="banco-dados" style="display: none;">
+				<h5>Será necessário Banco de Dados?</h5>
+				  <div class="input-group">
+				  <div class="input-group-prepend">
+					<div class="input-group-text">
+					<input type="radio" aria-label="Radio button" name="bd" value="1" onClick="visualizarClassesPersistentes();">
+					</div>
+				  </div>
+				  <label for="kind" class="form-control" aria-label="Text input with radio button">Sim</label>
+			    </div>
+				<div class="input-group">
+				  <div class="input-group-prepend">
+					<div class="input-group-text">
+					<input type="radio" aria-label="Radio button" name="bd" value="0" onClick="desvisualizarClassesPersistentes();" checked>
+					</div>
+				  </div>
+				  <label for="kind" class="form-control" aria-label="Text input with radio button">Não</label>
+			    </div>
+			  </div>
+			  <div class="card" id="classes-persistentes" style="display: block;">
+				<h5>Qual o número de classes persistentes?</h5>
+				  <div class="input-group">
+				  <div class="input-group-prepend">
+					<div class="input-group-text">
+					<input type="radio" aria-label="Radio button" name="classes-persistentes" value="1" checked>
+					</div>
+				  </div>
+				  <label for="kind" class="form-control" aria-label="Text input with radio button">Uma Classe</label>
+			    </div>
+				<div class="input-group">
+				  <div class="input-group-prepend">
+					<div class="input-group-text">
+					<input type="radio" aria-label="Radio button" name="classes-persistentes" value="2">
+					</div>
+				  </div>
+				  <label for="kind" class="form-control" aria-label="Text input with radio button">Duas Classes</label>
+			    </div>
+				  <div class="input-group">
+				  <div class="input-group-prepend">
+					<div class="input-group-text">
+					<input type="radio" aria-label="Radio button" name="classes-persistentes" value="3">
+					</div>
+				  </div>
+				  <label for="kind" class="form-control" aria-label="Text input with radio button">Outra quantidade</label>
+				  <input type="number" name="classes_persistentes_number" id="classes_persistentes_number" class="form-control" min="1" pattern="^[0-9]+" aria-label="Text input with radio button" value="1">
+			    </div>
+			  </div>
+			  <div class="card" id="sessioncookies" style="display: none;">
+				<h5>Será necessário trabalhar com sessão ou cookies?</h5>
+				  <div class="input-group">
+				  <div class="input-group-prepend">
+					<div class="input-group-text">
+					<input type="radio" aria-label="Radio button" name="session-cookies" value="1" onClick="visualizarCarrinho();">
+					</div>
+				  </div>
+				  <label for="kind" class="form-control" aria-label="Text input with radio button">Sim</label>
+			    </div>
+				<div class="input-group">
+				  <div class="input-group-prepend">
+					<div class="input-group-text">
+					<input type="radio" aria-label="Radio button" name="session-cookies" value="0" checked onClick="desvisualizarCarrinho();">
+					</div>
+				  </div>
+				  <label for="kind" class="form-control" aria-label="Text input with radio button">Não</label>
+			    </div>
+			  </div>
+			  <div class="card" id="carrinho" style="display: none;">
+				<h5>Possui Carrinho de compras?</h5>
+				  <div class="input-group">
+				  <div class="input-group-prepend">
+					<div class="input-group-text">
+					<input type="radio" aria-label="Radio button" name="carrinho" value="1" onClick="visualizarPagamento();">
+					</div>
+				  </div>
+				  <label for="kind" class="form-control" aria-label="Text input with radio button">Sim</label>
+			    </div>
+				<div class="input-group">
+				  <div class="input-group-prepend">
+					<div class="input-group-text">
+					<input type="radio" aria-label="Radio button" name="carrinho" value="0" onClick="desvisualizarPagamento();" checked>
+					</div>
+				  </div>
+				  <label for="kind" class="form-control" aria-label="Text input with radio button">Não</label>
+			    </div>
+			  </div>
+			  <div class="card" id="pagamento" style="display: none;">
+				<h5>Possui sistema de pagamento online?</h5>
+				  <div class="input-group">
+				  <div class="input-group-prepend">
+					<div class="input-group-text">
+					<input type="radio" aria-label="Radio button" name="pagamento" value="1" onClick="">
+					</div>
+				  </div>
+				  <label for="kind" class="form-control" aria-label="Text input with radio button">Sim</label>
+			    </div>
+				<div class="input-group">
+				  <div class="input-group-prepend">
+					<div class="input-group-text">
+					<input type="radio" aria-label="Radio button" name="pagamento" value="0" onClick="" checked>
+					</div>
+				  </div>
+				  <label for="kind" class="form-control" aria-label="Text input with radio button">Não</label>
+			    </div>
+			  </div>
+		</div>
+		<div class="col-md-12">
+			<center>
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</center>
+		</div>
+	  </form>
+	</div>
+  </body>
+</html>

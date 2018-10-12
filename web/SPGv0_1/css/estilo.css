@@ -232,6 +232,39 @@ input::-webkit-input-placeholder {
 	display: none;
 }
 
+.carousel-indicators li {
+    display: inline-block;
+    cursor: pointer;
+    background-color: #000000;
+    box-shadow: inset 1px 1px 1px 1px rgba(0,0,0,0.5);    
+}
+.carousel-indicators .active {
+    background-color: #265173;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon{
+	background-color: #265173;
+	border-radius: 15%;
+    box-shadow: inset 1px 1px 1px 1px rgba(0,0,0,0.5);
+    padding: 15px;    
+}
+.input-group{
+	margin-top: 10px;
+}
+
+.card-columns {
+        -webkit-column-count:2;
+        -moz-column-count:2;
+        column-count:2;
+}
+
+.card{
+	border: 0 none !important;
+	display: inline-block;
+}
+
+
 @media only screen and (max-width:576px){ 
 	.vis{
 		display: none;
@@ -282,6 +315,7 @@ input::-webkit-input-placeholder {
 	.anti-valor{
 		position: static;
 	}
+	
 }
 
 
